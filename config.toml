@@ -112,7 +112,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Business in Portugal"
       subtitle = "Outlook"
-      image = "Business.jpg"
+      image = "BusinessPT.jpg"
       url = "blogs/Business in Portugal"
 
     [[params.tiles.showcase]]
