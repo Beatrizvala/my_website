@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://beatrizvalawebsite.netlify.app/"
 languageCode = "en-us"
-title = "Beatriz"
+title = "Portfolio website for Beatriz"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -19,8 +19,8 @@ disqusShortname = ""
   # CSS class.
 
   # Provide your metadata here.
-  name = "Beatriz Vala"
-  description = "Your description"
+  name = "Beatriz Marçal Vala"
+  description = "Portuguese in London"
 
   # Link custom assets relative to /static
   custom_css = []
@@ -37,8 +37,8 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Forty"
-    subtitle = "By HTML5 Up"
+    title = "Beatriz Marçal Vala"
+    subtitle = "Portuguese living in London"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
