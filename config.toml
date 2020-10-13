@@ -81,8 +81,8 @@ disqusShortname = ""
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
-    title = "Hi, my name is Beatriz"
-    subtitle = "This is my portfolio website"
+    title = "My name is Beatriz and I'm Portuguese"
+    subtitle = "Here you can find some insights about my hometown"
     buttonText = "Get Started"
 
 
@@ -92,34 +92,34 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Portuguese Real Estate"
+      title = "Real Estate"
       subtitle = "Outlook"
       image = "25Abril.jpg"
-      url = "blogs/Portuguese Real Estate"
+      url = "blogs/Real Estate"
 
     [[params.tiles.showcase]]
-      title = "Tourism in Portugal"
+      title = "Tourism"
       subtitle = "Outlook"
       image = "Tourism.jpg"
-      url = "blogs/Tourism in Portugal"
+      url = "blogs/Tourism"
 
     [[params.tiles.showcase]]
-      title = "Portuguese Job Market"
+      title = "Job Market"
       subtitle = "Outlook"
       image = "Job.jpg"
-      url = "blogs/Portuguese Job Market"
+      url = "blogs/Job Market"
 
     [[params.tiles.showcase]]
-      title = "Business in Portugal"
+      title = "Business"
       subtitle = "Outlook"
       image = "BusinessPT.jpg"
-      url = "blogs/Business in Portugal"
+      url = "blogs/Business"
 
     [[params.tiles.showcase]]
-      title = "Portuguese Wine Market"
+      title = "Wine Market"
       subtitle = "Outlook"
       image = "Wine.jpg"
-      url = "blogs/Portuguese Wine Market"
+      url = "blogs/Wine Market"
 
     [[params.tiles.showcase]]
       title = "Visiting Portugal"
