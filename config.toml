@@ -37,7 +37,7 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Beatriz Marçal Vala"
+    title = "Beatriz Vala"
     subtitle = "" #No subtitle
     menu = "Menu"
     # Optional logo as brand stored in img/
