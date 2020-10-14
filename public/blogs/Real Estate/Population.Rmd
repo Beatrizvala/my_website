@@ -2,7 +2,7 @@
 title: "Real Estate"
 author: "Beatriz"
 
-```date: "13/10/2020"
+date: "13/10/2020"
 output: html_document
 ---
 
@@ -26,8 +26,8 @@ knitr::opts_chunk$set(
 
 ```{r load-libraries, echo=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
-library(gapminder)  # gapminder dataset
 library(here)
+library(readxl)
 ```
 
 
@@ -35,6 +35,8 @@ library(here)
 
 
 ```{r}
+World_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\DAF\\evision session\\my_website\\public\\blogs\\Real Estate\\World data.xlsx')
+
 glimpse(World_data)
 
 ```
