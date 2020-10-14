@@ -83,6 +83,7 @@ disqusShortname = ""
     # the 'static/img' folder.
     title = "My name is Beatriz and I'm Portuguese"
     subtitle = "Here you can find some insights about my hometown"
+    image = "banner.jpg"
     buttonText = "Get Started"
 
 
