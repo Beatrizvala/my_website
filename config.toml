@@ -95,7 +95,7 @@ disqusShortname = ""
       title = "Real Estate"
       subtitle = "Outlook"
       image = "projects/25Abril.jpg"
-      url = "Projects/Real Estate"
+      url = "content/projects/Real Estate"
 
     [[params.tiles.showcase]]
       title = "Tourism"
