@@ -92,10 +92,10 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Real Estate"
-      subtitle = "Outlook"
-      image = "projects/25Abril.jpg"
-      url = "projects/RealEstate"
+      title = "Overview"
+      subtitle = "Main Indicators"
+      image = "projects/Job.jpg"
+      url = "projects/MainIndicators"
 
     [[params.tiles.showcase]]
       title = "Tourism"
@@ -104,10 +104,10 @@ disqusShortname = ""
       url = "blogs/Tourism"
 
     [[params.tiles.showcase]]
-      title = "Job Market"
+      title = "Real Estate"
       subtitle = "Outlook"
-      image = "projects/Job.jpg"
-      url = "blogs/Job Market"
+      image = "projects/25Abril.jpg"
+      url = "blogs/RealEstate"
 
     [[params.tiles.showcase]]
       title = "Business"
