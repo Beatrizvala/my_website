@@ -1,0 +1,60 @@
+---
+title: "Tourism"
+author: "Beatriz"
+date: "15/10/2020"
+output: html_document
+---
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+```{r load-libraries, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(here)
+library(readxl)
+```
+
+## Load the data
+
+
+```{r}
+Tourism_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls')
+
+glimpse(Tourism_data)
+
+```
+
+```{r}
+ Tourism_data_new <- Tourism_data %>%  
+  rename("Accomodation_type" = `Accomodation type`,
+         "Overnight_stays" = `Overnight stays`,
+         "Accomodation_type" = `Accomodation type`) %>%
+  transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
+                       `Overnight_stays` = as.numeric(as.character(`Overnight_stays`))) %>%
+
+Tourism_data_new
+
+```
+
+```{r}
+plot1t <- Tourism_data_new %>% 
+  ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
+  geom_point() +
+  facet_wrap(~ Accomodation_type, scales = "free_y")
+  theme_light()
+
+plot1t
+```

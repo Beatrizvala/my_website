@@ -1,7 +1,6 @@
 ---
 title: "Real Estate"
 author: "Beatriz"
-
 date: "13/10/2020"
 output: html_document
 ---
@@ -43,8 +42,14 @@ glimpse(World_data)
 
 ```{r}
  World_data_new <- World_data %>%  
-  rename("Population" = `Population, total [SP.POP.TOTL]`, "Year" = `Time`, "Country" = `Country Name`) %>%
-  transform.data.frame(`Population` = as.numeric(as.character(`Population`)), `Year` = as.numeric(as.character(`Year`)))
+  rename("Population" = `Population, total [SP.POP.TOTL]`,
+         "Year" = `Time`,
+         "Country" = `Country Name`,
+         "GDP" = `GDP (constant 2010 US$) [NY.GDP.MKTP.KD]`,
+         "GDP_Growth" = `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]`) %>%
+  transform.data.frame(`Population` = as.numeric(as.character(`Population`)),
+                       `Year` = as.numeric(as.character(`Year`)),
+                       `GDP` = as.numeric(as.character(`GDP`)))
 
 World_data_new
 
@@ -63,8 +68,18 @@ portugal_data
 ```{r, population_grwoth_Portugal}
 plot1 <- portugal_data %>% 
   ggplot(mapping = aes(x = `Year`, y = `Population`)) +
-  geom_point() +
+  geom_line() +
   theme_light()
 
 plot1
+```
+
+
+```{r, population_grwoth_Portugal}
+plot2 <- portugal_data %>% 
+  ggplot(mapping = aes(x = `Year`, y = `GDP`)) +
+  geom_line() +
+  theme_light()
+
+plot2
 ```

@@ -1,0 +1,59 @@
+---
+title: "Wine"
+author: "Beatriz"
+date: "15/10/2020"
+output: html_document
+---
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center")
+```
+
+```{r load-libraries, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(here)
+library(readxl)
+```
+
+## Load the data
+
+
+```{r}
+Wine_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls')
+
+glimpse(Wine_data)
+
+```
+
+
+```{r}
+ Wine_data_new <- Wine_data %>%
+  rename("Wine_production_hl" = `Wine production (hectolitre)`) %>% 
+  transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
+                      `Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))
+
+Wine_data_new
+
+```
+
+
+```{r}
+plot1w <- Wine_data_new %>% 
+  ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
+  geom_point() +
+  facet_wrap(~ Localization, scales = "free_y")
+  theme_bw()
+
+plot1w
+```
