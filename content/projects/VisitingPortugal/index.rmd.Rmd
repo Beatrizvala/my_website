@@ -5,6 +5,7 @@ date: ""
 output: html_document
 ---
 
+
 # About Portugal...
 
 Portugal is one of Europe’s oldest extant nations, an ancient kingdom defended by hilltop castles and dramatic walled towns. When you travel to Portugal for the first time you will most likely be struck by the friendliness of the people, affordable food and wine, and the diversity of a country that is relatively easy to travel around in just a few days.
