@@ -101,31 +101,31 @@ disqusShortname = ""
       title = "Tourism"
       subtitle = "Outlook"
       image = "projects/Tourism.jpg"
-      url = "blogs/Tourism"
+      url = "projects/Tourism"
 
     [[params.tiles.showcase]]
       title = "Real Estate"
       subtitle = "Outlook"
       image = "projects/25Abril.jpg"
-      url = "blogs/RealEstate"
+      url = "projects/RealEstate"
 
     [[params.tiles.showcase]]
       title = "Business"
       subtitle = "Outlook"
       image = "projects/BusinessPT.jpg"
-      url = "blogs/Business"
+      url = "projects/Business"
 
     [[params.tiles.showcase]]
       title = "Wine Market"
       subtitle = "Outlook"
       image = "projects/Wine.jpg"
-      url = "blogs/Wine Market"
+      url = "projects/WineMarket"
 
     [[params.tiles.showcase]]
       title = "Visiting Portugal"
       subtitle = "What to do?"
       image = "projects/Visit.jpg"
-      url = "blogs/Visiting Portugal"
+      url = "projects/VisitingPortugal"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
