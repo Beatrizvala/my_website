@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About Portugal</title>
+      <link>/projects/project6/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project6/</guid>
+      <description>About Portugal…Portugal is one of Europe’s oldest extant nations, an ancient kingdom defended by hilltop castles and dramatic walled towns. When you travel to Portugal for the first time you will most likely be struck by the friendliness of the people, affordable food and wine, and the diversity of a country that is relatively easy to travel around in just a few days.
+It is a landscape of beaches and high mountains, but also of deep, verdant valleys and rolling hills dotted with stone-built villages.</description>
+    </item>
+    
+    <item>
       <title>Main indicators</title>
       <link>/projects/project1/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
@@ -79,16 +89,6 @@
       <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/projects/project6/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project6/</guid>
-      <description>About Portugal…Portugal is one of Europe’s oldest extant nations, an ancient kingdom defended by hilltop castles and dramatic walled towns. When you travel to Portugal for the first time you will most likely be struck by the friendliness of the people, affordable food and wine, and the diversity of a country that is relatively easy to travel around in just a few days.
-It is a landscape of beaches and high mountains, but also of deep, verdant valleys and rolling hills dotted with stone-built villages.</description>
     </item>
     
   </channel>

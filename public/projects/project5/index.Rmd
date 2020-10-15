@@ -5,7 +5,7 @@ categories:
 date: "2020-09-07"
 description: wine
 draft: false
-image: pic07.jpg
+image: Wine.jpg
 keywords: ""
 slug: project5
 title: Wine

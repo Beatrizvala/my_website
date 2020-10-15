@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/projects/project6/</loc>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/projects/project1/</loc>
     <lastmod>2020-09-07T00:00:00+00:00</lastmod>
   </url>
@@ -90,10 +95,6 @@
   <url>
     <loc>/tags/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/projects/project6/</loc>
   </url>
   
 </urlset>

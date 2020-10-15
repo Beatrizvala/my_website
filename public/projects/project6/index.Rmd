@@ -1,8 +1,14 @@
 ---
-title: ""
-author: ""
-date: ""
-output: html_document
+categories:
+- ""
+- ""
+date: "2020-09-07"
+description: About Portugal
+draft: false
+image: Visit.jpg
+keywords: ""
+slug: project6
+title: About Portugal
 ---
 
 
