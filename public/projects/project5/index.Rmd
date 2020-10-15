@@ -60,7 +60,7 @@ Wine_data_new
 plot1w <- Wine_data_new %>% 
   ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
   geom_point() +
-  facet_wrap(~ Localization, scales = "free_y")
+  facet_wrap(~ Localization, scales = "free_y") +
   theme_bw()
 
 plot1w

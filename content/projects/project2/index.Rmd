@@ -60,7 +60,7 @@ Tourism_data_new
 plot1t <- Tourism_data_new %>% 
   ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
   geom_point() +
-  facet_wrap(~ Accomodation_type, scales = "free_y")
+  facet_wrap(~ Accomodation_type, scales = "free_y") +
   theme_light()
 
 plot1t

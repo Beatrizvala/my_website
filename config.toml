@@ -95,7 +95,7 @@ disqusShortname = ""
       title = "Overview"
       subtitle = "Main Indicators"
       image = "projects/Job.jpg"
-      url = "projects/project2"
+      url = "projects/project1"
 
     [[params.tiles.showcase]]
       title = "Tourism"

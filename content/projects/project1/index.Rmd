@@ -1,0 +1,93 @@
+---
+categories:
+- ""
+- ""
+date: "2020-09-07"
+description: Main indicators
+draft: false
+image: pic07.jpg
+keywords: ""
+slug: project1
+title: Main indicators
+---
+
+
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+
+```{r load-libraries, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(here)
+library(readxl)
+```
+
+
+## Load the data
+
+
+```{r}
+World_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx')
+
+glimpse(World_data)
+
+```
+
+```{r}
+ World_data_new <- World_data %>%  
+  rename("Population" = `Population, total [SP.POP.TOTL]`,
+         "Year" = `Time`,
+         "Country" = `Country Name`,
+         "GDP" = `GDP (constant 2010 US$) [NY.GDP.MKTP.KD]`,
+         "GDP_Growth" = `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]`) %>%
+  transform.data.frame(`Population` = as.numeric(as.character(`Population`)),
+                       `Year` = as.numeric(as.character(`Year`)),
+                       `GDP` = as.numeric(as.character(`GDP`)))
+
+World_data_new
+
+```
+
+## Create plot
+
+
+```{r}
+portugal_data <- World_data_new %>% 
+            filter(`Country` == "Portugal")
+portugal_data
+
+```
+
+```{r, population_grwoth_Portugal}
+plot1 <- portugal_data %>% 
+  ggplot(mapping = aes(x = `Year`, y = `Population`)) +
+  geom_line() +
+  theme_light()
+
+plot1
+```
+
+
+```{r, population_grwoth_Portugal}
+plot2 <- portugal_data %>% 
+  ggplot(mapping = aes(x = `Year`, y = `GDP`)) +
+  geom_line() +
+  theme_light()
+
+plot2
+```
