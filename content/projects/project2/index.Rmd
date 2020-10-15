@@ -2,7 +2,13 @@
 title: "Tourism"
 author: "Beatriz"
 date: "15/10/2020"
-output: html_document
+output:  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
 ---
 
 ```{r, setup, echo=FALSE}
@@ -43,7 +49,7 @@ glimpse(Tourism_data)
          "Overnight_stays" = `Overnight stays`,
          "Accomodation_type" = `Accomodation type`) %>%
   transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
-                       `Overnight_stays` = as.numeric(as.character(`Overnight_stays`))) %>%
+                       `Overnight_stays` = as.numeric(as.character(`Overnight_stays`)))
 
 Tourism_data_new
 
