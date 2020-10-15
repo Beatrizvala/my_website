@@ -83,18 +83,7 @@
 
 <div id="load-the-data" class="section level2">
 <h2>Load the data</h2>
-<pre class="r"><code>World_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx&#39;)
-
-glimpse(World_data)</code></pre>
-<pre><code>## Rows: 36
-## Columns: 7
-## $ Time                                        &lt;chr&gt; &quot;1990&quot;, &quot;1991&quot;, &quot;1992&quot;,...
-## $ `Time Code`                                 &lt;chr&gt; &quot;YR1990&quot;, &quot;YR1991&quot;, &quot;YR...
-## $ `Country Name`                              &lt;chr&gt; &quot;Portugal&quot;, &quot;Portugal&quot;,...
-## $ `Country Code`                              &lt;chr&gt; &quot;PRT&quot;, &quot;PRT&quot;, &quot;PRT&quot;, &quot;P...
-## $ `Population, total [SP.POP.TOTL]`           &lt;chr&gt; &quot;9983218&quot;, &quot;9960235&quot;, &quot;...
-## $ `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]` &lt;chr&gt; &quot;3.9505233557912618&quot;, &quot;...
-## $ `GDP (constant 2010 US$) [NY.GDP.MKTP.KD]`  &lt;chr&gt; &quot;166396132329.44229&quot;, &quot;...</code></pre>
+<pre class="r"><code>World_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx&#39;)</code></pre>
 <pre class="r"><code> World_data_new &lt;- World_data %&gt;%  
   rename(&quot;Population&quot; = `Population, total [SP.POP.TOTL]`,
          &quot;Year&quot; = `Time`,
@@ -103,150 +92,9 @@ glimpse(World_data)</code></pre>
          &quot;GDP_Growth&quot; = `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]`) %&gt;%
   transform.data.frame(`Population` = as.numeric(as.character(`Population`)),
                        `Year` = as.numeric(as.character(`Year`)),
-                       `GDP` = as.numeric(as.character(`GDP`)))
-
-World_data_new</code></pre>
-<pre><code>##    Year Time.Code  Country Country.Code Population           GDP_Growth
-## 1  1990    YR1990 Portugal          PRT    9983218   3.9505233557912618
-## 2  1991    YR1991 Portugal          PRT    9960235   4.3682064793314055
-## 3  1992    YR1992 Portugal          PRT    9952494   1.0894764853674417
-## 4  1993    YR1993 Portugal          PRT    9964675  -2.0432770434936458
-## 5  1994    YR1994 Portugal          PRT    9991525  0.96483822835480737
-## 6  1995    YR1995 Portugal          PRT   10026176     4.28278040832582
-## 7  1996    YR1996 Portugal          PRT   10063945   3.5042473691651992
-## 8  1997    YR1997 Portugal          PRT   10108977   4.4008679688775771
-## 9  1998    YR1998 Portugal          PRT   10160196   4.8079634328755674
-## 10 1999    YR1999 Portugal          PRT   10217828    3.906576497243293
-## 11 2000    YR2000 Portugal          PRT   10289898   3.8161778456917546
-## 12 2001    YR2001 Portugal          PRT   10362722   1.9436724824528682
-## 13 2002    YR2002 Portugal          PRT   10419631  0.77092414118024521
-## 14 2003    YR2003 Portugal          PRT   10458821  -0.9305205824874605
-## 15 2004    YR2004 Portugal          PRT   10483861   1.7887351712223847
-## 16 2005    YR2005 Portugal          PRT   10503330  0.78184810776782854
-## 17 2006    YR2006 Portugal          PRT   10522288   1.6250338537455065
-## 18 2007    YR2007 Portugal          PRT   10542964   2.5065799889149645
-## 19 2008    YR2008 Portugal          PRT   10558177  0.31924855938969188
-## 20 2009    YR2009 Portugal          PRT   10568247  -3.1220800973123204
-## 21 2010    YR2010 Portugal          PRT   10573100    1.737625810043113
-## 22 2011    YR2011 Portugal          PRT   10557560  -1.6961657435926298
-## 23 2012    YR2012 Portugal          PRT   10514844  -4.0572943594235511
-## 24 2013    YR2013 Portugal          PRT   10457295 -0.92264378725786855
-## 25 2014    YR2014 Portugal          PRT   10401062    0.792190538376488
-## 26 2015    YR2015 Portugal          PRT   10358076   1.7920468527499622
-## 27 2016    YR2016 Portugal          PRT   10325452   2.0194862302765415
-## 28 2017    YR2017 Portugal          PRT   10300300   3.5063432380439963
-## 29 2018    YR2018 Portugal          PRT   10283822   2.6372455233120604
-## 30 2019    YR2019 Portugal          PRT   10269417   2.1644035931766155
-## 31 2020    YR2020 Portugal          PRT         NA                   ..
-## 32   NA      &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;         NA                 &lt;NA&gt;
-## 33   NA      &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;         NA                 &lt;NA&gt;
-## 34   NA      &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;         NA                 &lt;NA&gt;
-## 35   NA      &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;         NA                 &lt;NA&gt;
-## 36   NA      &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;         NA                 &lt;NA&gt;
-##         GDP
-## 1  1.66e+11
-## 2  1.74e+11
-## 3  1.76e+11
-## 4  1.72e+11
-## 5  1.74e+11
-## 6  1.81e+11
-## 7  1.87e+11
-## 8  1.96e+11
-## 9  2.05e+11
-## 10 2.13e+11
-## 11 2.21e+11
-## 12 2.26e+11
-## 13 2.27e+11
-## 14 2.25e+11
-## 15 2.29e+11
-## 16 2.31e+11
-## 17 2.35e+11
-## 18 2.41e+11
-## 19 2.41e+11
-## 20 2.34e+11
-## 21 2.38e+11
-## 22 2.34e+11
-## 23 2.24e+11
-## 24 2.22e+11
-## 25 2.24e+11
-## 26 2.28e+11
-## 27 2.33e+11
-## 28 2.41e+11
-## 29 2.47e+11
-## 30 2.53e+11
-## 31       NA
-## 32       NA
-## 33       NA
-## 34       NA
-## 35       NA
-## 36       NA</code></pre>
+                       `GDP` = as.numeric(as.character(`GDP`)))</code></pre>
 <pre class="r"><code>portugal_data &lt;- World_data_new %&gt;% 
-            filter(`Country` == &quot;Portugal&quot;)
-portugal_data</code></pre>
-<pre><code>##    Year Time.Code  Country Country.Code Population           GDP_Growth
-## 1  1990    YR1990 Portugal          PRT    9983218   3.9505233557912618
-## 2  1991    YR1991 Portugal          PRT    9960235   4.3682064793314055
-## 3  1992    YR1992 Portugal          PRT    9952494   1.0894764853674417
-## 4  1993    YR1993 Portugal          PRT    9964675  -2.0432770434936458
-## 5  1994    YR1994 Portugal          PRT    9991525  0.96483822835480737
-## 6  1995    YR1995 Portugal          PRT   10026176     4.28278040832582
-## 7  1996    YR1996 Portugal          PRT   10063945   3.5042473691651992
-## 8  1997    YR1997 Portugal          PRT   10108977   4.4008679688775771
-## 9  1998    YR1998 Portugal          PRT   10160196   4.8079634328755674
-## 10 1999    YR1999 Portugal          PRT   10217828    3.906576497243293
-## 11 2000    YR2000 Portugal          PRT   10289898   3.8161778456917546
-## 12 2001    YR2001 Portugal          PRT   10362722   1.9436724824528682
-## 13 2002    YR2002 Portugal          PRT   10419631  0.77092414118024521
-## 14 2003    YR2003 Portugal          PRT   10458821  -0.9305205824874605
-## 15 2004    YR2004 Portugal          PRT   10483861   1.7887351712223847
-## 16 2005    YR2005 Portugal          PRT   10503330  0.78184810776782854
-## 17 2006    YR2006 Portugal          PRT   10522288   1.6250338537455065
-## 18 2007    YR2007 Portugal          PRT   10542964   2.5065799889149645
-## 19 2008    YR2008 Portugal          PRT   10558177  0.31924855938969188
-## 20 2009    YR2009 Portugal          PRT   10568247  -3.1220800973123204
-## 21 2010    YR2010 Portugal          PRT   10573100    1.737625810043113
-## 22 2011    YR2011 Portugal          PRT   10557560  -1.6961657435926298
-## 23 2012    YR2012 Portugal          PRT   10514844  -4.0572943594235511
-## 24 2013    YR2013 Portugal          PRT   10457295 -0.92264378725786855
-## 25 2014    YR2014 Portugal          PRT   10401062    0.792190538376488
-## 26 2015    YR2015 Portugal          PRT   10358076   1.7920468527499622
-## 27 2016    YR2016 Portugal          PRT   10325452   2.0194862302765415
-## 28 2017    YR2017 Portugal          PRT   10300300   3.5063432380439963
-## 29 2018    YR2018 Portugal          PRT   10283822   2.6372455233120604
-## 30 2019    YR2019 Portugal          PRT   10269417   2.1644035931766155
-## 31 2020    YR2020 Portugal          PRT         NA                   ..
-##         GDP
-## 1  1.66e+11
-## 2  1.74e+11
-## 3  1.76e+11
-## 4  1.72e+11
-## 5  1.74e+11
-## 6  1.81e+11
-## 7  1.87e+11
-## 8  1.96e+11
-## 9  2.05e+11
-## 10 2.13e+11
-## 11 2.21e+11
-## 12 2.26e+11
-## 13 2.27e+11
-## 14 2.25e+11
-## 15 2.29e+11
-## 16 2.31e+11
-## 17 2.35e+11
-## 18 2.41e+11
-## 19 2.41e+11
-## 20 2.34e+11
-## 21 2.38e+11
-## 22 2.34e+11
-## 23 2.24e+11
-## 24 2.22e+11
-## 25 2.24e+11
-## 26 2.28e+11
-## 27 2.33e+11
-## 28 2.41e+11
-## 29 2.47e+11
-## 30 2.53e+11
-## 31       NA</code></pre>
+            filter(`Country` == &quot;Portugal&quot;)</code></pre>
 <pre class="r"><code>plot1 &lt;- portugal_data %&gt;% 
   ggplot(mapping = aes(x = `Year`, y = `Population`)) +
   geom_line() +

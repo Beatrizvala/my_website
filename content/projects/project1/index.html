@@ -1,0 +1,44 @@
+---
+title: "Main indicators"
+date: '2020-09-07'
+description: indicators
+draft: no
+image: pic07.jpg
+keywords: ''
+slug: project1
+categories:
+- ''
+- ''
+---
+
+
+
+<div id="load-the-data" class="section level2">
+<h2>Load the data</h2>
+<pre class="r"><code>World_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx&#39;)</code></pre>
+<pre class="r"><code> World_data_new &lt;- World_data %&gt;%  
+  rename(&quot;Population&quot; = `Population, total [SP.POP.TOTL]`,
+         &quot;Year&quot; = `Time`,
+         &quot;Country&quot; = `Country Name`,
+         &quot;GDP&quot; = `GDP (constant 2010 US$) [NY.GDP.MKTP.KD]`,
+         &quot;GDP_Growth&quot; = `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]`) %&gt;%
+  transform.data.frame(`Population` = as.numeric(as.character(`Population`)),
+                       `Year` = as.numeric(as.character(`Year`)),
+                       `GDP` = as.numeric(as.character(`GDP`)))</code></pre>
+<pre class="r"><code>portugal_data &lt;- World_data_new %&gt;% 
+            filter(`Country` == &quot;Portugal&quot;)</code></pre>
+<pre class="r"><code>plot1 &lt;- portugal_data %&gt;% 
+  ggplot(mapping = aes(x = `Year`, y = `Population`)) +
+  geom_line() +
+  theme_light()
+
+plot1</code></pre>
+<p><img src="/projects/project1/index_files/figure-html/population_growth_Portugal-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>plot2 &lt;- portugal_data %&gt;% 
+  ggplot(mapping = aes(x = `Year`, y = `GDP`)) +
+  geom_line() +
+  theme_light()
+
+plot2</code></pre>
+<p><img src="/projects/project1/index_files/figure-html/GDP_growth_Portugal-1.png" width="648" style="display: block; margin: auto;" /></p>
+</div>

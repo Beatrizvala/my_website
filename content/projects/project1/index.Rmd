@@ -40,7 +40,6 @@ library(readxl)
 ```{r}
 World_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx')
 
-glimpse(World_data)
 
 ```
 
@@ -55,7 +54,6 @@ glimpse(World_data)
                        `Year` = as.numeric(as.character(`Year`)),
                        `GDP` = as.numeric(as.character(`GDP`)))
 
-World_data_new
 
 ```
 
@@ -64,7 +62,6 @@ World_data_new
 ```{r}
 portugal_data <- World_data_new %>% 
             filter(`Country` == "Portugal")
-portugal_data
 
 ```
 
