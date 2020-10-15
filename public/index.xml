@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Main indicators</title>
+      <link>/projects/project1/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project1/</guid>
+      <description>Load the dataWorld_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx&amp;#39;)glimpse(World_data)## Rows: 36## Columns: 7## $ Time &amp;lt;chr&amp;gt; &amp;quot;1990&amp;quot;, &amp;quot;1991&amp;quot;, &amp;quot;1992&amp;quot;,...## $ `Time Code` &amp;lt;chr&amp;gt; &amp;quot;YR1990&amp;quot;, &amp;quot;YR1991&amp;quot;, &amp;quot;YR...## $ `Country Name` &amp;lt;chr&amp;gt; &amp;quot;Portugal&amp;quot;, &amp;quot;Portugal&amp;quot;,...## $ `Country Code` &amp;lt;chr&amp;gt; &amp;quot;PRT&amp;quot;, &amp;quot;PRT&amp;quot;, &amp;quot;PRT&amp;quot;, &amp;quot;P...## $ `Population, total [SP.POP.TOTL]` &amp;lt;chr&amp;gt; &amp;quot;9983218&amp;quot;, &amp;quot;9960235&amp;quot;, &amp;quot;...## $ `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]` &amp;lt;chr&amp;gt; &amp;quot;3.9505233557912618&amp;quot;, &amp;quot;...## $ `GDP (constant 2010 US$) [NY.</description>
+    </item>
+    
+    <item>
       <title>Tourism</title>
       <link>/projects/project2/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
