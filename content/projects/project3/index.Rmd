@@ -3,12 +3,12 @@ categories:
 - ""
 - ""
 date: "2020-09-07"
-description: real estate
+description: tourism
 draft: false
-image: 25Abril.jpg
+image: Tourism.jpg
 keywords: ""
-slug: project3
-title: Real Estate
+slug: project2
+title: Tourism
 ---
 
 
