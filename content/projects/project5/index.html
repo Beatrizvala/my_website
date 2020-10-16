@@ -18,6 +18,8 @@ title: Wine
   rename(&quot;Wine_production_hl&quot; = `Wine production (hectolitre)`) %&gt;% 
   transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
                       `Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))</code></pre>
+<div id="plots" class="section level2">
+<h2>Plots</h2>
 <pre class="r"><code>plot1w &lt;- Wine_data_new %&gt;% 
   ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
   geom_point() +
@@ -26,3 +28,4 @@ title: Wine
 
 plot1w</code></pre>
 <p><img src="/projects/project5/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>
+</div>

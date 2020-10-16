@@ -59,7 +59,7 @@ It is a landscape of beaches and high mountains, but also of deep, verdant valle
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project5/</guid>
-      <description>Wine_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls&amp;#39;) Wine_data_new &amp;lt;- Wine_data %&amp;gt;%rename(&amp;quot;Wine_production_hl&amp;quot; = `Wine production (hectolitre)`) %&amp;gt;% transform.data.frame(`Year` = as.numeric(as.character(`Year`)),`Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))plot1w &amp;lt;- Wine_data_new %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +geom_point() +facet_wrap(~ Localization, scales = &amp;quot;free_y&amp;quot;) +theme_bw()plot1w</description>
+      <description>Wine_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls&amp;#39;) Wine_data_new &amp;lt;- Wine_data %&amp;gt;%rename(&amp;quot;Wine_production_hl&amp;quot; = `Wine production (hectolitre)`) %&amp;gt;% transform.data.frame(`Year` = as.numeric(as.character(`Year`)),`Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))Plotsplot1w &amp;lt;- Wine_data_new %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +geom_point() +facet_wrap(~ Localization, scales = &amp;quot;free_y&amp;quot;) +theme_bw()plot1w</description>
     </item>
     
   </channel>

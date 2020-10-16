@@ -50,6 +50,7 @@ Wine_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.
 
 ```
 
+## Plots
 
 ```{r}
 plot1w <- Wine_data_new %>% 
