@@ -34,13 +34,10 @@ library(here)
 library(readxl)
 ```
 
-## Load the data
 
 
 ```{r}
 covid_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx')
-
-glimpse(covid_data)
 
 ```
 
@@ -48,9 +45,9 @@ glimpse(covid_data)
 covid_data_new <- covid_data %>% 
   transform.data.frame(`date` = as.Date(`date`))
 
-covid_data_new
 ```
 
+## Plots
 
 ```{r}
 plot1c <- covid_data_new %>%

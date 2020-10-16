@@ -34,7 +34,6 @@ library(here)
 library(readxl)
 ```
 
-## Load the data
 
 
 ```{r}
@@ -64,6 +63,9 @@ portugal_data <- World_data_new %>%
             filter(`Country` == "Portugal")
 
 ```
+
+
+## Plots
 
 ```{r, population_growth_Portugal}
 plot1 <- portugal_data %>% 

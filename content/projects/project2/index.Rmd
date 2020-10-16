@@ -40,7 +40,6 @@ library(readxl)
 ```{r}
 Tourism_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls')
 
-glimpse(Tourism_data)
 
 ```
 
@@ -52,9 +51,9 @@ glimpse(Tourism_data)
   transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
                        `Overnight_stays` = as.numeric(as.character(`Overnight_stays`)))
 
-Tourism_data_new
-
 ```
+
+## Plots
 
 ```{r}
 plot1t <- Tourism_data_new %>% 

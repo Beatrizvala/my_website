@@ -8,7 +8,43 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About Portugal</title>
+      <title>Covid-19</title>
+      <link>/projects/project4/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project4/</guid>
+      <description>covid_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx&amp;#39;)covid_data_new &amp;lt;- covid_data %&amp;gt;% transform.data.frame(`date` = as.Date(`date`))Plotsplot1c &amp;lt;- covid_data_new %&amp;gt;%filter(`location` == &amp;quot;Portugal&amp;quot;) %&amp;gt;% ggplot(mapping = aes(x = `date`, y = `total_cases`, color = `location`)) +scale_x_date(date_breaks = &amp;quot;2 month&amp;quot;) +geom_point() +theme_light()plot1cplot2c &amp;lt;- covid_data_new %&amp;gt;%filter(`location` == c(&amp;quot;Portugal&amp;quot;, &amp;quot;United Kingdom&amp;quot;, &amp;quot;World&amp;quot;)) %&amp;gt;% ggplot(mapping = aes(x = `date`, y = `total_cases_per_million`, color = `location`)) +scale_x_date(date_breaks = &amp;quot;2 month&amp;quot;) +geom_point() +theme_light()plot2c</description>
+    </item>
+    
+    <item>
+      <title>Main indicators</title>
+      <link>/projects/project1/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project1/</guid>
+      <description>World_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx&amp;#39;) World_data_new &amp;lt;- World_data %&amp;gt;% rename(&amp;quot;Population&amp;quot; = `Population, total [SP.POP.TOTL]`,&amp;quot;Year&amp;quot; = `Time`,&amp;quot;Country&amp;quot; = `Country Name`,&amp;quot;GDP&amp;quot; = `GDP (constant 2010 US$) [NY.GDP.MKTP.KD]`,&amp;quot;GDP_Growth&amp;quot; = `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]`) %&amp;gt;%transform.data.frame(`Population` = as.numeric(as.character(`Population`)),`Year` = as.numeric(as.character(`Year`)),`GDP` = as.numeric(as.character(`GDP`)))portugal_data &amp;lt;- World_data_new %&amp;gt;% filter(`Country` == &amp;quot;Portugal&amp;quot;)Plotsplot1 &amp;lt;- portugal_data %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `Population`)) +geom_line() +theme_light()plot1plot2 &amp;lt;- portugal_data %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `GDP`)) +geom_line() +theme_light()plot2</description>
+    </item>
+    
+    <item>
+      <title>Real Estate</title>
+      <link>/projects/project3/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project3/</guid>
+      <description>Residential_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Residential Property Prices.xls&amp;#39;) Residential_data_new &amp;lt;- Residential_data %&amp;gt;% rename(&amp;quot;%_change&amp;quot; = `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted`, &amp;quot;residential_prices&amp;quot; = `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted`)Plotsplot1r &amp;lt;- Residential_data_new %&amp;gt;% ggplot(mapping = aes(x = `observation_date`, y = `%_change`, color = Country)) +geom_point() +geom_line() +theme_light()plot1rplot2r &amp;lt;- Residential_data_new %&amp;gt;% ggplot(mapping = aes(x = `observation_date`, y = `residential_prices`, color = Country)) +geom_point() +geom_line() +theme_light()plot2r</description>
+    </item>
+    
+    <item>
+      <title>Tourism</title>
+      <link>/projects/project2/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project2/</guid>
+      <description>Load the dataTourism_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls&amp;#39;) Tourism_data_new &amp;lt;- Tourism_data %&amp;gt;% rename(&amp;quot;Accomodation_type&amp;quot; = `Accomodation type`,&amp;quot;Overnight_stays&amp;quot; = `Overnight stays`,&amp;quot;Accomodation_type&amp;quot; = `Accomodation type`) %&amp;gt;%transform.data.frame(`Year` = as.numeric(as.character(`Year`)),`Overnight_stays` = as.numeric(as.character(`Overnight_stays`)))Plotsplot1t &amp;lt;- Tourism_data_new %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +geom_point() +facet_wrap(~ Accomodation_type, scales = &amp;quot;free_y&amp;quot;) +theme_light()plot1t</description>
+    </item>
+    
+    <item>
+      <title>Visiting Portugal</title>
       <link>/projects/project6/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
@@ -18,48 +54,12 @@ It is a landscape of beaches and high mountains, but also of deep, verdant valle
     </item>
     
     <item>
-      <title>Covid-19</title>
-      <link>/projects/project4/</link>
-      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project4/</guid>
-      <description>Load the datacovid_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx&amp;#39;)glimpse(covid_data)## Rows: 50,513## Columns: 15## $ iso_code &amp;lt;chr&amp;gt; &amp;quot;ABW&amp;quot;, &amp;quot;ABW&amp;quot;, &amp;quot;ABW&amp;quot;, &amp;quot;ABW&amp;quot;, &amp;quot;ABW&amp;quot;, &amp;quot;ABW&amp;quot;, ...## $ continent &amp;lt;chr&amp;gt; &amp;quot;North America&amp;quot;, &amp;quot;North America&amp;quot;, &amp;quot;North A...## $ location &amp;lt;chr&amp;gt; &amp;quot;Aruba&amp;quot;, &amp;quot;Aruba&amp;quot;, &amp;quot;Aruba&amp;quot;, &amp;quot;Aruba&amp;quot;, &amp;quot;Aruba...## $ date &amp;lt;chr&amp;gt; &amp;quot;2020-03-13&amp;quot;, &amp;quot;2020-03-19&amp;quot;, &amp;quot;2020-03-20&amp;quot;, ...## $ total_cases &amp;lt;dbl&amp;gt; 2, NA, 4, NA, NA, NA, 12, 17, 19, 28, 28, ...## $ new_cases &amp;lt;dbl&amp;gt; 2, NA, 2, NA, NA, NA, 8, 5, 2, 9, 0, 0, 22.</description>
-    </item>
-    
-    <item>
-      <title>Main indicators</title>
-      <link>/projects/project1/</link>
-      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project1/</guid>
-      <description>Load the dataWorld_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx&amp;#39;) World_data_new &amp;lt;- World_data %&amp;gt;% rename(&amp;quot;Population&amp;quot; = `Population, total [SP.POP.TOTL]`,&amp;quot;Year&amp;quot; = `Time`,&amp;quot;Country&amp;quot; = `Country Name`,&amp;quot;GDP&amp;quot; = `GDP (constant 2010 US$) [NY.GDP.MKTP.KD]`,&amp;quot;GDP_Growth&amp;quot; = `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]`) %&amp;gt;%transform.data.frame(`Population` = as.numeric(as.character(`Population`)),`Year` = as.numeric(as.character(`Year`)),`GDP` = as.numeric(as.character(`GDP`)))portugal_data &amp;lt;- World_data_new %&amp;gt;% filter(`Country` == &amp;quot;Portugal&amp;quot;)plot1 &amp;lt;- portugal_data %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `Population`)) +geom_line() +theme_light()plot1plot2 &amp;lt;- portugal_data %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `GDP`)) +geom_line() +theme_light()plot2</description>
-    </item>
-    
-    <item>
-      <title>Real Estate</title>
-      <link>/projects/project3/</link>
-      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project3/</guid>
-      <description>Load the dataResidential_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Residential Property Prices.xls&amp;#39;)glimpse(Residential_data)## Rows: 20## Columns: 4## $ observation_date &amp;lt;dttm&amp;gt; ...## $ Country &amp;lt;chr&amp;gt; ...## $ `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted` &amp;lt;dbl&amp;gt; ...## $ `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted` &amp;lt;dbl&amp;gt; ... Residential_data_new &amp;lt;- Residential_data %&amp;gt;% rename(&amp;quot;%_change&amp;quot; = `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted`, &amp;quot;residential_prices&amp;quot; = `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted`)Residential_data_new## # A tibble: 20 x 4## observation_date Country `%_change` residential_prices## &amp;lt;dttm&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 2010-01-01 00:00:00 Portugal 0.</description>
-    </item>
-    
-    <item>
-      <title>Tourism</title>
-      <link>/projects/project2/</link>
-      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project2/</guid>
-      <description>Load the dataTourism_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls&amp;#39;)glimpse(Tourism_data)## Rows: 84## Columns: 4## $ Location &amp;lt;chr&amp;gt; &amp;quot;Portugal&amp;quot;, &amp;quot;Portugal&amp;quot;, &amp;quot;Portugal&amp;quot;, &amp;quot;Portugal&amp;quot;,...## $ Year &amp;lt;chr&amp;gt; &amp;quot;2019&amp;quot;, &amp;quot;2019&amp;quot;, &amp;quot;2019&amp;quot;, &amp;quot;2019&amp;quot;, &amp;quot;2019&amp;quot;, &amp;quot;2019&amp;quot;,...## $ `Accomodation type` &amp;lt;chr&amp;gt; &amp;quot;Total&amp;quot;, &amp;quot;Hospitality establishments&amp;quot;, &amp;quot;Youth h...## $ `Overnight stays` &amp;lt;dbl&amp;gt; 77822655, 68194189, 472975, 6941638, 249078, 19... Tourism_data_new &amp;lt;- Tourism_data %&amp;gt;% rename(&amp;quot;Accomodation_type&amp;quot; = `Accomodation type`,&amp;quot;Overnight_stays&amp;quot; = `Overnight stays`,&amp;quot;Accomodation_type&amp;quot; = `Accomodation type`) %&amp;gt;%transform.</description>
-    </item>
-    
-    <item>
       <title>Wine</title>
       <link>/projects/project5/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project5/</guid>
-      <description>Load the dataWine_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls&amp;#39;)glimpse(Wine_data)## Rows: 33## Columns: 3## $ Localization &amp;lt;chr&amp;gt; &amp;quot;Portuguese Mainland&amp;quot;, &amp;quot;Portuguese M...## $ Year &amp;lt;chr&amp;gt; &amp;quot;2019&amp;quot;, &amp;quot;2018&amp;quot;, &amp;quot;2017&amp;quot;, &amp;quot;2016&amp;quot;, &amp;quot;201...## $ `Wine production (hectolitre)` &amp;lt;dbl&amp;gt; 6474757, 6013078, 6688965, 5982274, ... Wine_data_new &amp;lt;- Wine_data %&amp;gt;%rename(&amp;quot;Wine_production_hl&amp;quot; = `Wine production (hectolitre)`) %&amp;gt;% transform.data.frame(`Year` = as.numeric(as.character(`Year`)),`Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))Wine_data_new## Localization Year Wine_production_hl## 1 Portuguese Mainland 2019 6474757## 2 Portuguese Mainland 2018 6013078## 3 Portuguese Mainland 2017 6688965## 4 Portuguese Mainland 2016 5982274## 5 Portuguese Mainland 2015 6991655## 6 Portuguese Mainland 2014 6152005## 7 Portuguese Mainland 2013 6181615## 8 Portuguese Mainland 2012 6272479## 9 Portuguese Mainland 2011 5572402## 10 Portuguese Mainland 2010 7106363## 11 Portuguese Mainland 2009 5834310## 12 Azores 2019 13246## 13 Azores 2018 13285## 14 Azores 2017 5034## 15 Azores 2016 5845## 16 Azores 2015 10404## 17 Azores 2014 12926## 18 Azores 2013 6595## 19 Azores 2012 4991## 20 Azores 2011 11370## 21 Azores 2010 4783## 22 Azores 2009 13754## 23 Madeira 2019 38559## 24 Madeira 2018 34880## 25 Madeira 2017 42773## 26 Madeira 2016 33849## 27 Madeira 2015 45747## 28 Madeira 2014 40825## 29 Madeira 2013 43136## 30 Madeira 2012 49637## 31 Madeira 2011 38591## 32 Madeira 2010 36781## 33 Madeira 2009 45448plot1w &amp;lt;- Wine_data_new %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +geom_point() +facet_wrap(~ Localization, scales = &amp;quot;free_y&amp;quot;) +theme_bw()plot1w</description>
+      <description>Wine_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls&amp;#39;) Wine_data_new &amp;lt;- Wine_data %&amp;gt;%rename(&amp;quot;Wine_production_hl&amp;quot; = `Wine production (hectolitre)`) %&amp;gt;% transform.data.frame(`Year` = as.numeric(as.character(`Year`)),`Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))plot1w &amp;lt;- Wine_data_new %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +geom_point() +facet_wrap(~ Localization, scales = &amp;quot;free_y&amp;quot;) +theme_bw()plot1w</description>
     </item>
     
   </channel>

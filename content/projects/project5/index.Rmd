@@ -34,13 +34,10 @@ library(here)
 library(readxl)
 ```
 
-## Load the data
 
 
 ```{r}
 Wine_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls')
-
-glimpse(Wine_data)
 
 ```
 
@@ -50,8 +47,6 @@ glimpse(Wine_data)
   rename("Wine_production_hl" = `Wine production (hectolitre)`) %>% 
   transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
                       `Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))
-
-Wine_data_new
 
 ```
 

@@ -83,108 +83,16 @@
 
 <div id="load-the-data" class="section level2">
 <h2>Load the data</h2>
-<pre class="r"><code>Tourism_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls&#39;)
-
-glimpse(Tourism_data)</code></pre>
-<pre><code>## Rows: 84
-## Columns: 4
-## $ Location            &lt;chr&gt; &quot;Portugal&quot;, &quot;Portugal&quot;, &quot;Portugal&quot;, &quot;Portugal&quot;,...
-## $ Year                &lt;chr&gt; &quot;2019&quot;, &quot;2019&quot;, &quot;2019&quot;, &quot;2019&quot;, &quot;2019&quot;, &quot;2019&quot;,...
-## $ `Accomodation type` &lt;chr&gt; &quot;Total&quot;, &quot;Hospitality establishments&quot;, &quot;Youth h...
-## $ `Overnight stays`   &lt;dbl&gt; 77822655, 68194189, 472975, 6941638, 249078, 19...</code></pre>
+<pre class="r"><code>Tourism_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls&#39;)</code></pre>
 <pre class="r"><code> Tourism_data_new &lt;- Tourism_data %&gt;%  
   rename(&quot;Accomodation_type&quot; = `Accomodation type`,
          &quot;Overnight_stays&quot; = `Overnight stays`,
          &quot;Accomodation_type&quot; = `Accomodation type`) %&gt;%
   transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
-                       `Overnight_stays` = as.numeric(as.character(`Overnight_stays`)))
-
-Tourism_data_new</code></pre>
-<pre><code>##    Location Year          Accomodation_type Overnight_stays
-## 1  Portugal 2019                      Total        77822655
-## 2  Portugal 2019 Hospitality establishments        68194189
-## 3  Portugal 2019              Youth hostels          472975
-## 4  Portugal 2019                   Campsite         6941638
-## 5  Portugal 2019              Holiday camps          249078
-## 6  Portugal 2019              Rural tourism         1964775
-## 7  Portugal 2018                      Total        75197734
-## 8  Portugal 2018 Hospitality establishments        65871340
-## 9  Portugal 2018              Youth hostels          428057
-## 10 Portugal 2018                   Campsite         6840808
-## 11 Portugal 2018              Holiday camps          266766
-## 12 Portugal 2018              Rural tourism         1790763
-## 13 Portugal 2017                      Total        72657888
-## 14 Portugal 2017 Hospitality establishments        63685220
-## 15 Portugal 2017              Youth hostels          403383
-## 16 Portugal 2017                   Campsite         6576557
-## 17 Portugal 2017              Holiday camps          292738
-## 18 Portugal 2017              Rural tourism         1699990
-## 19 Portugal 2016                      Total        66423718
-## 20 Portugal 2016 Hospitality establishments        57669473
-## 21 Portugal 2016              Youth hostels          396140
-## 22 Portugal 2016                   Campsite         6612252
-## 23 Portugal 2016              Holiday camps          292686
-## 24 Portugal 2016              Rural tourism         1453167
-## 25 Portugal 2015                      Total        59552631
-## 26 Portugal 2015 Hospitality establishments        51801909
-## 27 Portugal 2015              Youth hostels          427710
-## 28 Portugal 2015                   Campsite         5782307
-## 29 Portugal 2015              Holiday camps          268438
-## 30 Portugal 2015              Rural tourism         1272267
-## 31 Portugal 2014                      Total        55057139
-## 32 Portugal 2014 Hospitality establishments        45872499
-## 33 Portugal 2014              Youth hostels          376132
-## 34 Portugal 2014                   Campsite         5637081
-## 35 Portugal 2014              Holiday camps          332560
-## 36 Portugal 2014              Rural tourism          855726
-## 37 Portugal 2013                      Total        48742016
-## 38 Portugal 2013 Hospitality establishments        41569716
-## 39 Portugal 2013              Youth hostels          367324
-## 40 Portugal 2013                   Campsite         5611886
-## 41 Portugal 2013              Holiday camps          448506
-## 42 Portugal 2013              Rural tourism          744584
-## 43 Portugal 2012                      Total              NA
-## 44 Portugal 2012 Hospitality establishments        39681040
-## 45 Portugal 2012              Youth hostels          396509
-## 46 Portugal 2012                   Campsite         6225033
-## 47 Portugal 2012              Holiday camps          478509
-## 48 Portugal 2012              Rural tourism              NA
-## 49 Portugal 2011                      Total        46872385
-## 50 Portugal 2011 Hospitality establishments        39440315
-## 51 Portugal 2011              Youth hostels          472501
-## 52 Portugal 2011                   Campsite         6434399
-## 53 Portugal 2011              Holiday camps          525170
-## 54 Portugal 2011              Rural tourism              NA
-## 55 Portugal 2010                      Total        45035005
-## 56 Portugal 2010 Hospitality establishments        37391291
-## 57 Portugal 2010              Youth hostels          530784
-## 58 Portugal 2010                   Campsite         6512198
-## 59 Portugal 2010              Holiday camps          600732
-## 60 Portugal 2010              Rural tourism              NA
-## 61 Portugal 2009                      Total        44364742
-## 62 Portugal 2009 Hospitality establishments        36457069
-## 63 Portugal 2009              Youth hostels          501325
-## 64 Portugal 2009                   Campsite         6749904
-## 65 Portugal 2009              Holiday camps          656444
-## 66 Portugal 2009              Rural tourism              NA
-## 67 Portugal 2008                      Total        47840231
-## 68 Portugal 2008 Hospitality establishments        39227938
-## 69 Portugal 2008              Youth hostels          574978
-## 70 Portugal 2008                   Campsite         6792545
-## 71 Portugal 2008              Holiday camps          721311
-## 72 Portugal 2008              Rural tourism          523459
-## 73 Portugal 2007                      Total        48629077
-## 74 Portugal 2007 Hospitality establishments        39736583
-## 75 Portugal 2007              Youth hostels          497074
-## 76 Portugal 2007                   Campsite         7003070
-## 77 Portugal 2007              Holiday camps          727882
-## 78 Portugal 2007              Rural tourism          664468
-## 79 Portugal 2006                      Total        46038957
-## 80 Portugal 2006 Hospitality establishments        37566461
-## 81 Portugal 2006              Youth hostels          425196
-## 82 Portugal 2006                   Campsite         6831903
-## 83 Portugal 2006              Holiday camps          698344
-## 84 Portugal 2006              Rural tourism          517053</code></pre>
+                       `Overnight_stays` = as.numeric(as.character(`Overnight_stays`)))</code></pre>
+</div>
+<div id="plots" class="section level2">
+<h2>Plots</h2>
 <pre class="r"><code>plot1t &lt;- Tourism_data_new %&gt;% 
   ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
   geom_point() +
@@ -212,7 +120,7 @@ plot1t</code></pre>
                 
                     <li><a href="https://www.instagram.com/beatrizvala6/" class="icon alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
                 
-                    <li><a href="https://www.github.com" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                    <li><a href="https://github.com/Beatrizvala" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
                 
                     <li><a href="https://www.linkedin.com/in/beatriz-vala/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
                 

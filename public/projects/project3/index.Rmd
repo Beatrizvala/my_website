@@ -34,13 +34,11 @@ library(here)
 library(readxl)
 ```
 
-## Load the data
 
 
 ```{r}
 Residential_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Residential Property Prices.xls')
 
-glimpse(Residential_data)
 
 ```
 
@@ -48,9 +46,10 @@ glimpse(Residential_data)
  Residential_data_new <- Residential_data %>%  
   rename("%_change" = `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted`, "residential_prices" = `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted`)
 
-Residential_data_new
 
 ```
+
+## Plots
 
 ```{r}
 plot1r <- Residential_data_new %>% 

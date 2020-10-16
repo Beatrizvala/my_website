@@ -3,12 +3,12 @@ categories:
 - ""
 - ""
 date: "2020-09-07"
-description: About Portugal
+description: Visiting Portugal
 draft: false
 image: Visit.jpg
 keywords: ""
 slug: project6
-title: About Portugal
+title: Visiting Portugal
 ---
 
 

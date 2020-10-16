@@ -13,56 +13,11 @@ title: Wine
 
 
 
-<div id="load-the-data" class="section level2">
-<h2>Load the data</h2>
-<pre class="r"><code>Wine_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls&#39;)
-
-glimpse(Wine_data)</code></pre>
-<pre><code>## Rows: 33
-## Columns: 3
-## $ Localization                   &lt;chr&gt; &quot;Portuguese Mainland&quot;, &quot;Portuguese M...
-## $ Year                           &lt;chr&gt; &quot;2019&quot;, &quot;2018&quot;, &quot;2017&quot;, &quot;2016&quot;, &quot;201...
-## $ `Wine production (hectolitre)` &lt;dbl&gt; 6474757, 6013078, 6688965, 5982274, ...</code></pre>
+<pre class="r"><code>Wine_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls&#39;)</code></pre>
 <pre class="r"><code> Wine_data_new &lt;- Wine_data %&gt;%
   rename(&quot;Wine_production_hl&quot; = `Wine production (hectolitre)`) %&gt;% 
   transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
-                      `Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))
-
-Wine_data_new</code></pre>
-<pre><code>##           Localization Year Wine_production_hl
-## 1  Portuguese Mainland 2019            6474757
-## 2  Portuguese Mainland 2018            6013078
-## 3  Portuguese Mainland 2017            6688965
-## 4  Portuguese Mainland 2016            5982274
-## 5  Portuguese Mainland 2015            6991655
-## 6  Portuguese Mainland 2014            6152005
-## 7  Portuguese Mainland 2013            6181615
-## 8  Portuguese Mainland 2012            6272479
-## 9  Portuguese Mainland 2011            5572402
-## 10 Portuguese Mainland 2010            7106363
-## 11 Portuguese Mainland 2009            5834310
-## 12              Azores 2019              13246
-## 13              Azores 2018              13285
-## 14              Azores 2017               5034
-## 15              Azores 2016               5845
-## 16              Azores 2015              10404
-## 17              Azores 2014              12926
-## 18              Azores 2013               6595
-## 19              Azores 2012               4991
-## 20              Azores 2011              11370
-## 21              Azores 2010               4783
-## 22              Azores 2009              13754
-## 23             Madeira 2019              38559
-## 24             Madeira 2018              34880
-## 25             Madeira 2017              42773
-## 26             Madeira 2016              33849
-## 27             Madeira 2015              45747
-## 28             Madeira 2014              40825
-## 29             Madeira 2013              43136
-## 30             Madeira 2012              49637
-## 31             Madeira 2011              38591
-## 32             Madeira 2010              36781
-## 33             Madeira 2009              45448</code></pre>
+                      `Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))</code></pre>
 <pre class="r"><code>plot1w &lt;- Wine_data_new %&gt;% 
   ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
   geom_point() +
@@ -71,4 +26,3 @@ Wine_data_new</code></pre>
 
 plot1w</code></pre>
 <p><img src="/projects/project5/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>
-</div>

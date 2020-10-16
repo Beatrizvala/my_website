@@ -81,8 +81,6 @@
                             
 
 
-<div id="load-the-data" class="section level2">
-<h2>Load the data</h2>
 <pre class="r"><code>World_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx&#39;)</code></pre>
 <pre class="r"><code> World_data_new &lt;- World_data %&gt;%  
   rename(&quot;Population&quot; = `Population, total [SP.POP.TOTL]`,
@@ -95,6 +93,8 @@
                        `GDP` = as.numeric(as.character(`GDP`)))</code></pre>
 <pre class="r"><code>portugal_data &lt;- World_data_new %&gt;% 
             filter(`Country` == &quot;Portugal&quot;)</code></pre>
+<div id="plots" class="section level2">
+<h2>Plots</h2>
 <pre class="r"><code>plot1 &lt;- portugal_data %&gt;% 
   ggplot(mapping = aes(x = `Year`, y = `Population`)) +
   geom_line() +
@@ -128,7 +128,7 @@ plot2</code></pre>
                 
                     <li><a href="https://www.instagram.com/beatrizvala6/" class="icon alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
                 
-                    <li><a href="https://www.github.com" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                    <li><a href="https://github.com/Beatrizvala" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
                 
                     <li><a href="https://www.linkedin.com/in/beatriz-vala/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
                 
