@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Portuguese in London">
+	<meta name="author" content="Beatriz Marçal Vala">
+	<meta name="generator" content="Hugo 0.75.1" />
+	<title>Real Estate &middot; Portfolio website for Beatriz</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Beatriz Vala</strong> <span></span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/projects">View all</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/projects" class="button special fit">Get Started</a></li>
+            
+            
+                <li><a href="/" class="button fit">Log In</a></li>
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Real Estate</h1>
+                            </header>
+                            
+                                <span class="image main"><img src="/img/projects/25Abril.jpg" alt="" /></span>
+                            
+                            
+
+
+<div id="load-the-data" class="section level2">
+<h2>Load the data</h2>
+<pre class="r"><code>Residential_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Residential Property Prices.xls&#39;)
+
+glimpse(Residential_data)</code></pre>
+<pre><code>## Rows: 20
+## Columns: 4
+## $ observation_date                                                               &lt;dttm&gt; ...
+## $ Country                                                                        &lt;chr&gt; ...
+## $ `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted` &lt;dbl&gt; ...
+## $ `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted` &lt;dbl&gt; ...</code></pre>
+<pre class="r"><code> Residential_data_new &lt;- Residential_data %&gt;%  
+  rename(&quot;%_change&quot; = `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted`, &quot;residential_prices&quot; = `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted`)
+
+Residential_data_new</code></pre>
+<pre><code>## # A tibble: 20 x 4
+##    observation_date    Country        `%_change` residential_prices
+##    &lt;dttm&gt;              &lt;chr&gt;               &lt;dbl&gt;              &lt;dbl&gt;
+##  1 2010-01-01 00:00:00 Portugal            0.770              100  
+##  2 2010-01-01 00:00:00 United Kingdom      5.68               100. 
+##  3 2011-01-01 00:00:00 Portugal           -4.90                95.1
+##  4 2011-01-01 00:00:00 United Kingdom     -1.48                98.5
+##  5 2012-01-01 00:00:00 Portugal           -7.07                88.4
+##  6 2012-01-01 00:00:00 United Kingdom      0.426               98.9
+##  7 2013-01-01 00:00:00 Portugal           -1.88                86.7
+##  8 2013-01-01 00:00:00 United Kingdom      2.57               101. 
+##  9 2014-01-01 00:00:00 Portugal            4.25                90.4
+## 10 2014-01-01 00:00:00 United Kingdom      8.02               110. 
+## 11 2015-01-01 00:00:00 Portugal            3.05                93.1
+## 12 2015-01-01 00:00:00 United Kingdom      5.97               116. 
+## 13 2016-01-01 00:00:00 Portugal            7.12                99.8
+## 14 2016-01-01 00:00:00 United Kingdom      6.98               124. 
+## 15 2017-01-01 00:00:00 Portugal            9.24               109. 
+## 16 2017-01-01 00:00:00 United Kingdom      4.59               130. 
+## 17 2018-01-01 00:00:00 Portugal           10.3                120. 
+## 18 2018-01-01 00:00:00 United Kingdom      3.12               134. 
+## 19 2019-01-01 00:00:00 Portugal            9.63               132. 
+## 20 2019-01-01 00:00:00 United Kingdom      1.02               135.</code></pre>
+<pre class="r"><code>plot1r &lt;- Residential_data_new %&gt;% 
+  ggplot(mapping = aes(x = `observation_date`, y = `%_change`, color = Country)) +
+  geom_point() +
+  geom_line() +
+  theme_light()
+
+plot1r</code></pre>
+<p><img src="/projects/project3/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>plot2r &lt;- Residential_data_new %&gt;% 
+  ggplot(mapping = aes(x = `observation_date`, y = `residential_prices`, color = Country)) +
+  geom_point() +
+  geom_line() +
+  theme_light()
+
+plot2r</code></pre>
+<p><img src="/projects/project3/index_files/figure-html/unnamed-chunk-4-1.png" width="648" style="display: block; margin: auto;" /></p>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://www.facebook.com/bia.vala" class="icon alt fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+                
+                    <li><a href="https://www.instagram.com/beatrizvala6/" class="icon alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+                
+                    <li><a href="https://www.github.com" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com/in/beatriz-vala/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; London Business School</li>
+                
+                <li>Design:  <a href="https://www.html5up.net">HTML5 UP</a></li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

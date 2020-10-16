@@ -27,12 +27,30 @@ It is a landscape of beaches and high mountains, but also of deep, verdant valle
     </item>
     
     <item>
+      <title>Real Estate</title>
+      <link>/projects/project3/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project3/</guid>
+      <description>Load the dataResidential_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Residential Property Prices.xls&amp;#39;)glimpse(Residential_data)## Rows: 20## Columns: 4## $ observation_date &amp;lt;dttm&amp;gt; ...## $ Country &amp;lt;chr&amp;gt; ...## $ `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted` &amp;lt;dbl&amp;gt; ...## $ `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted` &amp;lt;dbl&amp;gt; ... Residential_data_new &amp;lt;- Residential_data %&amp;gt;% rename(&amp;quot;%_change&amp;quot; = `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted`, &amp;quot;residential_prices&amp;quot; = `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted`)Residential_data_new## # A tibble: 20 x 4## observation_date Country `%_change` residential_prices## &amp;lt;dttm&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 2010-01-01 00:00:00 Portugal 0.</description>
+    </item>
+    
+    <item>
       <title>Tourism</title>
       <link>/projects/project2/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project2/</guid>
       <description>Load the dataTourism_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls&amp;#39;)glimpse(Tourism_data)## Rows: 84## Columns: 4## $ Location &amp;lt;chr&amp;gt; &amp;quot;Portugal&amp;quot;, &amp;quot;Portugal&amp;quot;, &amp;quot;Portugal&amp;quot;, &amp;quot;Portugal&amp;quot;,...## $ Year &amp;lt;chr&amp;gt; &amp;quot;2019&amp;quot;, &amp;quot;2019&amp;quot;, &amp;quot;2019&amp;quot;, &amp;quot;2019&amp;quot;, &amp;quot;2019&amp;quot;, &amp;quot;2019&amp;quot;,...## $ `Accomodation type` &amp;lt;chr&amp;gt; &amp;quot;Total&amp;quot;, &amp;quot;Hospitality establishments&amp;quot;, &amp;quot;Youth h...## $ `Overnight stays` &amp;lt;dbl&amp;gt; 77822655, 68194189, 472975, 6941638, 249078, 19... Tourism_data_new &amp;lt;- Tourism_data %&amp;gt;% rename(&amp;quot;Accomodation_type&amp;quot; = `Accomodation type`,&amp;quot;Overnight_stays&amp;quot; = `Overnight stays`,&amp;quot;Accomodation_type&amp;quot; = `Accomodation type`) %&amp;gt;%transform.</description>
+    </item>
+    
+    <item>
+      <title>Tourism</title>
+      <link>/projects/project2/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project2/</guid>
+      <description>Load the datacovid_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx&amp;#39;)glimpse(covid_data)## Rows: 50,513## Columns: 15## $ iso_code &amp;lt;chr&amp;gt; &amp;quot;ABW&amp;quot;, &amp;quot;ABW&amp;quot;, &amp;quot;ABW&amp;quot;, &amp;quot;ABW&amp;quot;, &amp;quot;ABW&amp;quot;, &amp;quot;ABW&amp;quot;, ...## $ continent &amp;lt;chr&amp;gt; &amp;quot;North America&amp;quot;, &amp;quot;North America&amp;quot;, &amp;quot;North A...## $ location &amp;lt;chr&amp;gt; &amp;quot;Aruba&amp;quot;, &amp;quot;Aruba&amp;quot;, &amp;quot;Aruba&amp;quot;, &amp;quot;Aruba&amp;quot;, &amp;quot;Aruba...## $ date &amp;lt;chr&amp;gt; &amp;quot;2020-03-13&amp;quot;, &amp;quot;2020-03-19&amp;quot;, &amp;quot;2020-03-20&amp;quot;, ...## $ total_cases &amp;lt;dbl&amp;gt; 2, NA, 4, NA, NA, NA, 12, 17, 19, 28, 28, ...## $ new_cases &amp;lt;dbl&amp;gt; 2, NA, 2, NA, NA, NA, 8, 5, 2, 9, 0, 0, 22.</description>
     </item>
     
     <item>
