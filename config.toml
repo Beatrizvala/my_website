@@ -110,9 +110,9 @@ disqusShortname = ""
       url = "projects/project3"
 
     [[params.tiles.showcase]]
-      title = "Business"
+      title = "Covid-19"
       subtitle = "Outlook"
-      image = "projects/BusinessPT.jpg"
+      image = "projects/covid.jpg"
       url = "projects/project4"
 
     [[params.tiles.showcase]]

@@ -8,7 +8,7 @@ draft: false
 image: Tourism.jpg
 keywords: ""
 slug: project2
-title: Tourism 
+title: Tourism
 ---
 
 
@@ -38,39 +38,30 @@ library(readxl)
 
 
 ```{r}
-covid_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx')
+Tourism_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls')
 
-glimpse(covid_data)
+glimpse(Tourism_data)
 
 ```
 
 ```{r}
-covid_data_new <- covid_data %>% 
-  transform.data.frame(`date` = as.Date(`date`))
+ Tourism_data_new <- Tourism_data %>%  
+  rename("Accomodation_type" = `Accomodation type`,
+         "Overnight_stays" = `Overnight stays`,
+         "Accomodation_type" = `Accomodation type`) %>%
+  transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
+                       `Overnight_stays` = as.numeric(as.character(`Overnight_stays`)))
 
-covid_data_new
+Tourism_data_new
+
 ```
 
-
 ```{r}
-plot1c <- covid_data_new %>%
-  filter(`location` == "Portugal") %>% 
-  ggplot(mapping = aes(x = `date`, y = `total_cases`, color = `location`)) +
-  scale_x_date(date_breaks = "2 month") +
+plot1t <- Tourism_data_new %>% 
+  ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
   geom_point() +
+  facet_wrap(~ Accomodation_type, scales = "free_y") +
   theme_light()
 
-plot1c
-```
-
-
-```{r}
-plot2c <- covid_data_new %>%
-  filter(`location` == c("Portugal", "United Kingdom", "World")) %>% 
-  ggplot(mapping = aes(x = `date`, y = `total_cases_per_million`, color = `location`)) +
-  scale_x_date(date_breaks = "2 month") +
-  geom_point() +
-  theme_light()
-
-plot2c
+plot1t
 ```
