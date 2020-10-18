@@ -22,7 +22,10 @@ title: Real Estate
   ggplot(mapping = aes(x = `observation_date`, y = `%_change`, color = Country)) +
   geom_point() +
   geom_line() +
-  theme_light()
+  theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
+                                colour = &quot;lightblue&quot;,
+                                size = 0.5, linetype = &quot;solid&quot;)) +
+  scale_colour_manual(values = c(&quot;black&quot;, &quot;grey50&quot;))
 
 plot1r</code></pre>
 <p><img src="/projects/project3/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>
@@ -30,7 +33,10 @@ plot1r</code></pre>
   ggplot(mapping = aes(x = `observation_date`, y = `residential_prices`, color = Country)) +
   geom_point() +
   geom_line() +
-  theme_light()
+  theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
+                                colour = &quot;lightblue&quot;,
+                                size = 0.5, linetype = &quot;solid&quot;)) +
+  scale_colour_manual(values = c(&quot;black&quot;, &quot;grey50&quot;))
 
 plot2r</code></pre>
 <p><img src="/projects/project3/index_files/figure-html/unnamed-chunk-4-1.png" width="648" style="display: block; margin: auto;" /></p>

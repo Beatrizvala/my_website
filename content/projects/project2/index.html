@@ -29,8 +29,12 @@ title: Tourism
   ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
   geom_point() +
   facet_wrap(~ Accomodation_type, scales = &quot;free_y&quot;) +
-  theme_light()
+  theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
+                                colour = &quot;lightblue&quot;,
+                                size = 0.5, linetype = &quot;solid&quot;)) +
+  labs(y = &quot;Overnight stays&quot;)
 
 plot1t</code></pre>
 <p><img src="/projects/project2/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>Source:</p>
 </div>

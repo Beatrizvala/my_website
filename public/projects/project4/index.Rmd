@@ -55,7 +55,10 @@ plot1c <- covid_data_new %>%
   ggplot(mapping = aes(x = `date`, y = `total_cases`, color = `location`)) +
   scale_x_date(date_breaks = "2 month") +
   geom_point() +
-  theme_light()
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid")) +
+  scale_colour_manual(values = "grey50")
 
 plot1c
 ```
@@ -67,7 +70,11 @@ plot2c <- covid_data_new %>%
   ggplot(mapping = aes(x = `date`, y = `total_cases_per_million`, color = `location`)) +
   scale_x_date(date_breaks = "2 month") +
   geom_point() +
-  theme_light()
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid")) +
+  scale_colour_manual(values = c("grey50", "black", "white")) +
+  labs(y = "Total cases per million", x = "Date")
 
 plot2c
 ```

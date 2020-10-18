@@ -23,7 +23,10 @@ title: Covid-19
   ggplot(mapping = aes(x = `date`, y = `total_cases`, color = `location`)) +
   scale_x_date(date_breaks = &quot;2 month&quot;) +
   geom_point() +
-  theme_light()
+  theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
+                                colour = &quot;lightblue&quot;,
+                                size = 0.5, linetype = &quot;solid&quot;)) +
+  scale_colour_manual(values = &quot;grey50&quot;)
 
 plot1c</code></pre>
 <p><img src="/projects/project4/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>
@@ -32,7 +35,11 @@ plot1c</code></pre>
   ggplot(mapping = aes(x = `date`, y = `total_cases_per_million`, color = `location`)) +
   scale_x_date(date_breaks = &quot;2 month&quot;) +
   geom_point() +
-  theme_light()
+  theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
+                                colour = &quot;lightblue&quot;,
+                                size = 0.5, linetype = &quot;solid&quot;)) +
+  scale_colour_manual(values = c(&quot;grey50&quot;, &quot;black&quot;, &quot;white&quot;)) +
+  labs(y = &quot;Total cases per million&quot;, x = &quot;Date&quot;)
 
 plot2c</code></pre>
 <p><img src="/projects/project4/index_files/figure-html/unnamed-chunk-4-1.png" width="648" style="display: block; margin: auto;" /></p>

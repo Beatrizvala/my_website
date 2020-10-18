@@ -23,8 +23,12 @@ title: Wine
 <pre class="r"><code>plot1w &lt;- Wine_data_new %&gt;% 
   ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
   geom_point() +
-  facet_wrap(~ Localization, scales = &quot;free_y&quot;) +
-  theme_bw()
+  facet_wrap(~ Localization, scales = &quot;free_y&quot;) + 
+  theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
+                                colour = &quot;lightblue&quot;,
+                                size = 0.5, linetype = &quot;solid&quot;)) +
+  labs(y = &quot;Wine production (hl)&quot;)
+  
 
 plot1w</code></pre>
 <p><img src="/projects/project5/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>

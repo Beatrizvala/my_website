@@ -56,8 +56,12 @@ Wine_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.
 plot1w <- Wine_data_new %>% 
   ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
   geom_point() +
-  facet_wrap(~ Localization, scales = "free_y") +
-  theme_bw()
+  facet_wrap(~ Localization, scales = "free_y") + 
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid")) +
+  labs(y = "Wine production (hl)")
+  
 
 plot1w
 ```

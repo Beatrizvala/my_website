@@ -60,7 +60,13 @@ plot1t <- Tourism_data_new %>%
   ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
   geom_point() +
   facet_wrap(~ Accomodation_type, scales = "free_y") +
-  theme_light()
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid")) +
+  labs(y = "Overnight stays")
 
 plot1t
 ```
+
+
+Source: 

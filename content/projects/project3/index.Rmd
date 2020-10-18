@@ -56,7 +56,10 @@ plot1r <- Residential_data_new %>%
   ggplot(mapping = aes(x = `observation_date`, y = `%_change`, color = Country)) +
   geom_point() +
   geom_line() +
-  theme_light()
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid")) +
+  scale_colour_manual(values = c("black", "grey50"))
 
 plot1r
 ```
@@ -65,7 +68,10 @@ plot2r <- Residential_data_new %>%
   ggplot(mapping = aes(x = `observation_date`, y = `residential_prices`, color = Country)) +
   geom_point() +
   geom_line() +
-  theme_light()
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid")) +
+  scale_colour_manual(values = c("black", "grey50"))
 
 plot2r
 ```

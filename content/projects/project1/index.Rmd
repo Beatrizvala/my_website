@@ -71,7 +71,9 @@ portugal_data <- World_data_new %>%
 plot1 <- portugal_data %>% 
   ggplot(mapping = aes(x = `Year`, y = `Population`)) +
   geom_line() +
-  theme_light()
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.9, linetype = "solid"))
 
 plot1
 ```
@@ -81,7 +83,11 @@ plot1
 plot2 <- portugal_data %>% 
   ggplot(mapping = aes(x = `Year`, y = `GDP`)) +
   geom_line() +
-  theme_light()
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.9, linetype = "solid"))
 
 plot2
 ```
+
+Source: https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL&country=PRT#
