@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About me</title>
-      <link>/projects/project7/</link>
+      <link>/projects/project6/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/projects/project7/</guid>
+      <guid>/projects/project6/</guid>
       <description>My name is Beatriz and I am from Portugal (as you already know) where I was born and raised.
 Academic BackgroundI did my Bachelors in Business Management at Católica Lisbon and currently I am doing the Masters in Financial Analysis at London Business School, which made me move to London.
 Professional ExperienceRight after my Bachelors I started working at Deloitte in the Financial Advisory department and I was allocated to the Real Estate team.</description>
@@ -20,60 +20,50 @@ Academic BackgroundI did my Bachelors in Business Management at Católica Lisbo
     
     <item>
       <title>Covid-19</title>
-      <link>/projects/project4/</link>
+      <link>/projects/project3/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/projects/project4/</guid>
+      <guid>/projects/project3/</guid>
       <description>Let’s try to understand how Coronavirus has been developing in Portugal, comparing it with the UK and with the whole world.
 covid_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx&amp;#39;)covid_data_new &amp;lt;- covid_data %&amp;gt;% transform.data.frame(`date` = as.Date(`date`))Plotsplot1c &amp;lt;- covid_data_new %&amp;gt;%filter(`location` == &amp;quot;Portugal&amp;quot;) %&amp;gt;% ggplot(mapping = aes(x = `date`, y = `total_cases`, color = `location`)) +scale_x_date(date_breaks = &amp;quot;2 month&amp;quot;) +geom_line() +theme(panel.background = element_rect(fill = &amp;quot;lightblue&amp;quot;,colour = &amp;quot;lightblue&amp;quot;,size = 0.</description>
     </item>
     
     <item>
-      <title>Main indicators</title>
-      <link>/projects/project1/</link>
-      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project1/</guid>
-      <description>Let’s look at Portugal’s population and GDP.
-World_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx&amp;#39;) World_data_new &amp;lt;- World_data %&amp;gt;% rename(&amp;quot;Population&amp;quot; = `Population, total [SP.POP.TOTL]`,&amp;quot;Year&amp;quot; = `Time`,&amp;quot;Country&amp;quot; = `Country Name`,&amp;quot;GDP&amp;quot; = `GDP (constant 2010 US$) [NY.GDP.MKTP.KD]`,&amp;quot;GDP_Growth&amp;quot; = `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]`) %&amp;gt;%transform.data.frame(`Population` = as.numeric(as.character(`Population`)),`Year` = as.numeric(as.character(`Year`)),`GDP` = as.numeric(as.character(`GDP`)))portugal_data &amp;lt;- World_data_new %&amp;gt;% filter(`Country` == &amp;quot;Portugal&amp;quot;)Plotsplot1 &amp;lt;- portugal_data %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `Population`)) +geom_line() +theme(panel.</description>
-    </item>
-    
-    <item>
       <title>Real Estate</title>
-      <link>/projects/project3/</link>
+      <link>/projects/project2/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/projects/project3/</guid>
+      <guid>/projects/project2/</guid>
       <description>To understand the movements of the Portuguese Real Estate Market, let’s look at the movements of the Residential properties’ prices and compare it with the movements in the UK.
 Residential_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Residential Property Prices.xls&amp;#39;) Residential_data_new &amp;lt;- Residential_data %&amp;gt;% rename(&amp;quot;%_change&amp;quot; = `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted`, &amp;quot;residential_prices&amp;quot; = `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted`)Plotsplot1r &amp;lt;- Residential_data_new %&amp;gt;% ggplot(mapping = aes(x = `observation_date`, y = `%_change`, color = Country)) +geom_point() +geom_line() +theme(panel.</description>
     </item>
     
     <item>
       <title>Tourism</title>
-      <link>/projects/project2/</link>
+      <link>/projects/project1/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/projects/project2/</guid>
+      <guid>/projects/project1/</guid>
       <description>Tourism accounts for a big portion of Portugal’s GDP, being a sector with high importance for the country.Let’s see how this market is evolving.
 Tourism_data1 &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourismv02.xls&amp;#39;)Tourism_data2 &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls&amp;#39;) Tourism_data1_new &amp;lt;- Tourism_data1 %&amp;gt;% rename(&amp;quot;Place_of_residence&amp;quot; = `Place of residence (Country - short list)`,&amp;quot;Year&amp;quot; = `Data reference period`,&amp;quot;Number_of_nights&amp;quot; = `Nights (No.) in tourist accommodation establishments by Geographic localization and Place of residence (Country - short list); Annual (1)`) %&amp;gt;%transform.</description>
     </item>
     
     <item>
       <title>Visiting Portugal</title>
-      <link>/projects/project6/</link>
+      <link>/projects/project5/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/projects/project6/</guid>
+      <guid>/projects/project5/</guid>
       <description>About Portugal…Portugal’s landscape is made of beaches and high mountains, but also of deep, verdant valleys and rolling hills. It is full of friendly people, cheap food and wine and it is really easy to travel around.
 Where to go in Portugal…If you are looking to go to the beach with a calm sea and enjoy the sun, the best place to go is Algarve, located in the south.</description>
     </item>
     
     <item>
       <title>Wine</title>
-      <link>/projects/project5/</link>
+      <link>/projects/project4/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/projects/project5/</guid>
+      <guid>/projects/project4/</guid>
       <description>Portugal has a strong wine tradition, and the excellent quality of its wines is recognized all over the world.Let’s see the total wine production in Portugal!
 Wine_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls&amp;#39;) Wine_data_new &amp;lt;- Wine_data %&amp;gt;%rename(&amp;quot;Wine_production_hl&amp;quot; = `Wine production (hectolitre)`) %&amp;gt;% transform.data.frame(`Year` = as.numeric(as.character(`Year`)),`Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))Plotsplot1w &amp;lt;- Wine_data_new %&amp;gt;% ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +geom_bar(stat = &amp;quot;identity&amp;quot;) +facet_wrap(~ Localization, scales = &amp;quot;free_y&amp;quot;) + theme(panel.</description>
     </item>

@@ -3,15 +3,16 @@ categories:
 - ""
 - ""
 date: "2020-09-07"
-description: covid
+description: wine
 draft: false
-image: covid.jpg
+image: Wine.jpg
 keywords: ""
 slug: project4
-title: Covid-19 
+title: Wine
 ---
 
-Let's try to understand how Coronavirus has been developing in Portugal, comparing it with the UK and with the whole world.
+Portugal has a strong wine tradition, and the excellent quality of its wines is recognized all over the world.
+Let's see the total wine production in Portugal!
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -25,8 +26,7 @@ options(digits = 3)
 knitr::opts_chunk$set(
   fig.width=6.75, 
   fig.height=6.75,
-  fig.align = "center"
-)
+  fig.align = "center")
 ```
 
 ```{r load-libraries, echo=FALSE}
@@ -36,49 +36,35 @@ library(readxl)
 ```
 
 
+
 ```{r}
-covid_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx')
+Wine_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls')
 
 ```
 
+
 ```{r}
-covid_data_new <- covid_data %>% 
-  transform.data.frame(`date` = as.Date(`date`))
+ Wine_data_new <- Wine_data %>%
+  rename("Wine_production_hl" = `Wine production (hectolitre)`) %>% 
+  transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
+                      `Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))
 
 ```
 
 ## Plots
 
 ```{r}
-plot1c <- covid_data_new %>%
-  filter(`location` == "Portugal") %>% 
-  ggplot(mapping = aes(x = `date`, y = `total_cases`, color = `location`)) +
-  scale_x_date(date_breaks = "2 month") +
-  geom_line() +
+plot1w <- Wine_data_new %>% 
+  ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
+  geom_bar(stat = "identity") +
+  facet_wrap(~ Localization, scales = "free_y") + 
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid")) +
-  scale_colour_manual(values = "grey50") +
-  labs(y = "Total number of cases", x = "Date", title = "Total number of Covid-19 cases in Portugal")
+  labs(y = "Wine production (hl)", title = "Wine production in Portugal")
+  
 
-plot1c
+plot1w
 ```
 
-
-```{r}
-plot2c <- covid_data_new %>%
-  filter(`location` == c("Portugal", "United Kingdom", "World")) %>% 
-  ggplot(mapping = aes(x = `date`, y = `total_cases_per_million`, color = `location`)) +
-  scale_x_date(date_breaks = "2 month") +
-  geom_line() +
-  theme(panel.background = element_rect(fill = "lightblue",
-                                colour = "lightblue",
-                                size = 0.5, linetype = "solid")) +
-  scale_colour_manual(values = c("grey50", "black", "white")) +
-  labs(y = "Total cases per million", x = "Date", title = "Total number of Covid-19 cases in Portugal, UK and World")
-
-plot2c
-```
-
-
-Source: https://ourworldindata.org/coronavirus/country/portugal?country=~PRT
+Source: https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&indOcorrCod=0008237&contexto=bd&selTab=tab2

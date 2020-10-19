@@ -8,7 +8,7 @@
 	<meta name="description" content="Portuguese in London">
 	<meta name="author" content="Beatriz Marçal Vala">
 	<meta name="generator" content="Hugo 0.75.1" />
-	<title>Main indicators &middot; Portfolio website for Beatriz</title>
+	<title>Tourism &middot; Portfolio website for Beatriz</title>
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="/css/main.css"/>
@@ -73,50 +73,59 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>Main indicators</h1>
+                                <h1>Tourism</h1>
                             </header>
                             
-                                <span class="image main"><img src="/img/projects/Job.jpg" alt="" /></span>
+                                <span class="image main"><img src="/img/projects/Tourism.jpg" alt="" /></span>
                             
                             
 
 
-<p>Let’s look at Portugal’s population and GDP.</p>
-<pre class="r"><code>World_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx&#39;)</code></pre>
-<pre class="r"><code> World_data_new &lt;- World_data %&gt;%  
-  rename(&quot;Population&quot; = `Population, total [SP.POP.TOTL]`,
-         &quot;Year&quot; = `Time`,
-         &quot;Country&quot; = `Country Name`,
-         &quot;GDP&quot; = `GDP (constant 2010 US$) [NY.GDP.MKTP.KD]`,
-         &quot;GDP_Growth&quot; = `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]`) %&gt;%
-  transform.data.frame(`Population` = as.numeric(as.character(`Population`)),
-                       `Year` = as.numeric(as.character(`Year`)),
-                       `GDP` = as.numeric(as.character(`GDP`)))</code></pre>
-<pre class="r"><code>portugal_data &lt;- World_data_new %&gt;% 
-            filter(`Country` == &quot;Portugal&quot;)</code></pre>
+<p>Tourism accounts for a big portion of Portugal’s GDP, being a sector with high importance for the country.
+Let’s see how this market is evolving.</p>
+<pre class="r"><code>Tourism_data1 &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourismv02.xls&#39;)
+
+
+Tourism_data2 &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls&#39;)</code></pre>
+<pre class="r"><code> Tourism_data1_new &lt;- Tourism_data1 %&gt;%  
+  rename(&quot;Place_of_residence&quot; = `Place of residence (Country - short list)`,
+         &quot;Year&quot; = `Data reference period`,
+         &quot;Number_of_nights&quot; = `Nights (No.) in tourist accommodation establishments by Geographic localization and Place of residence (Country - short list); Annual (1)`) %&gt;%
+  transform.data.frame(`Year` = as.numeric(as.character(`Year`)))</code></pre>
+<pre class="r"><code> Tourism_data2_new &lt;- Tourism_data2 %&gt;%  
+  rename(&quot;Accomodation_type&quot; = `Accomodation type`,
+         &quot;Overnight_stays&quot; = `Overnight stays`,
+         &quot;Accomodation_type&quot; = `Accomodation type`) %&gt;%
+  transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
+                       `Overnight_stays` = as.numeric(as.character(`Overnight_stays`)))</code></pre>
 <div id="plots" class="section level2">
 <h2>Plots</h2>
-<pre class="r"><code>plot1 &lt;- portugal_data %&gt;% 
-  ggplot(mapping = aes(x = `Year`, y = `Population`)) +
+<pre class="r"><code>plot1t &lt;- Tourism_data1_new %&gt;% 
+  filter(Place_of_residence == &quot;Total&quot;) %&gt;% 
+  ggplot(mapping = aes(x = `Year`, y = `Number_of_nights`)) +
+  geom_point() +
   geom_line() +
   theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
-                                colour = &quot;lightblue&quot;,
-                                size = 0.9, linetype = &quot;solid&quot;)) +
-  labs(title = &quot;Portugal population in the last 30 years&quot;)
+                                  colour = &quot;lightblue&quot;,
+                                size = 0.5, linetype = &quot;solid&quot;)) +
+  labs(y = &quot;Number of nights&quot;, title = &quot;Number of nights in Portuguese tourist accommodation establishments&quot;)
 
-plot1</code></pre>
-<p><img src="/projects/project1/index_files/figure-html/population_growth_Portugal-1.png" width="648" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>plot2 &lt;- portugal_data %&gt;% 
-  ggplot(mapping = aes(x = `Year`, y = `GDP`)) +
+plot1t</code></pre>
+<p><img src="/projects/project1/index_files/figure-html/unnamed-chunk-4-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>plot2t &lt;- Tourism_data2_new %&gt;% 
+  ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
+  geom_point() +
   geom_line() +
+  facet_wrap(~ Accomodation_type, scales = &quot;free_y&quot;) +
   theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
                                 colour = &quot;lightblue&quot;,
-                                size = 0.9, linetype = &quot;solid&quot;)) +
-  labs(title = &quot;Portugal GDP in the last 30 years&quot;)
+                                size = 0.5, linetype = &quot;solid&quot;)) +
+  labs(y = &quot;Overnight stays&quot;, title = &quot;Number of nights in colective tourist accomodations&quot;)
 
-plot2</code></pre>
-<p><img src="/projects/project1/index_files/figure-html/GDP_growth_Portugal-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p>Source: <a href="https://databank.worldbank.org/reports.aspx?source=2&amp;series=SP.POP.TOTL&amp;country=PRT#" class="uri">https://databank.worldbank.org/reports.aspx?source=2&amp;series=SP.POP.TOTL&amp;country=PRT#</a></p>
+plot2t</code></pre>
+<p><img src="/projects/project1/index_files/figure-html/unnamed-chunk-5-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>Source: <a href="https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;contecto=pi&amp;indOcorrCod=0009183&amp;selTab=tab0" class="uri">https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;contecto=pi&amp;indOcorrCod=0009183&amp;selTab=tab0</a>
+<a href="https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;contecto=pi&amp;indOcorrCod=0009183&amp;selTab=tab0" class="uri">https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;contecto=pi&amp;indOcorrCod=0009183&amp;selTab=tab0</a></p>
 </div>
 
                         </div>

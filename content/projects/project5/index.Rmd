@@ -3,68 +3,79 @@ categories:
 - ""
 - ""
 date: "2020-09-07"
-description: wine
+description: Visiting Portugal
 draft: false
-image: Wine.jpg
+image: Visit.jpg
 keywords: ""
 slug: project5
-title: Wine
+title: Visiting Portugal
 ---
 
-Portugal has a strong wine tradition, and the excellent quality of its wines is recognized all over the world.
-Let's see the total wine production in Portugal!
 
-```{r, setup, echo=FALSE}
-knitr::opts_chunk$set(
-  message = FALSE, 
-  warning = FALSE, 
-  tidy=FALSE,     # display code as typed
-  size="small")   # slightly smaller font for code
-options(digits = 3)
+# About Portugal...
 
-# default figure size
-knitr::opts_chunk$set(
-  fig.width=6.75, 
-  fig.height=6.75,
-  fig.align = "center")
-```
+Portugal's landscape is made of beaches and high mountains, but also of deep, verdant valleys and rolling hills. It is full of friendly people, cheap food and wine and it is really easy to travel around.
 
-```{r load-libraries, echo=FALSE}
-library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
-library(here)
-library(readxl)
-```
+
+![](https://lp-cms-production.imgix.net/image_browser/lisbon-portugal-GettyRF_1023284240.jpg.jpg)
+
+# Where to go in Portugal...
+
+If you are looking to go to the beach with a calm sea and enjoy the sun, the best place to go is **Algarve**, located in the south. And for surfers, looking for big waves **Ericeira** and **Peniche** are amazing places to visit and stay for a couple of days..
+
+**Lisbon** is a beautiful and captivating city to visit. It is really traditional, but also full of modern architecture. Some of the go-to areas are Chiado, Terreiro do Paço, Alfama and Avenida da Liberdade.
+
+**Porto** is almost the second capital of Portugal. There you can find the **Ribeira**, surrounded by colorful buildings rising up from the banks of the river Douro. Along Douro are located some of the world's most incredible vineyards and doing a trip along the port wine route is one of the best parts of visiting Portugal.
 
 
 
-```{r}
-Wine_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls')
+## 10 best places in Portugal
 
-```
+### Porto’s Ribeira
+
+![](https://cdn.theculturetrip.com/wp-content/uploads/2015/11/jctp0047-ribeira-porto-portugal-burrows-23.jpg)
 
 
-```{r}
- Wine_data_new <- Wine_data %>%
-  rename("Wine_production_hl" = `Wine production (hectolitre)`) %>% 
-  transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
-                      `Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))
+### Sintra
 
-```
+![](https://media.cntraveler.com/photos/590ca578c116ba6ca55ec67c/16:9/w_4975,h_2798,c_limit/sintra-pena-palace-GettyImages-482413302.jpg)
 
-## Plots
 
-```{r}
-plot1w <- Wine_data_new %>% 
-  ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
-  geom_bar(stat = "identity") +
-  facet_wrap(~ Localization, scales = "free_y") + 
-  theme(panel.background = element_rect(fill = "lightblue",
-                                colour = "lightblue",
-                                size = 0.5, linetype = "solid")) +
-  labs(y = "Wine production (hl)", title = "Wine production in Portugal")
-  
+### Serra da Estrela
 
-plot1w
-```
+![](https://quantocustaviajar.com/blog/wp-content/uploads/2019/01/serra-da-estrela-em-portugal.jpg)
 
-Source: https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&indOcorrCod=0008237&contexto=bd&selTab=tab2
+
+### Praia da Bordeira in the Algarve
+
+![](https://thepostcard.me/wp-content/uploads/2018/08/Praia-da-Bordeira-Beach-Portugal-1080x810.jpg)
+
+
+### River Douro valley
+
+![](https://www.travel-in-portugal.com/sites/default/files/photos/douro_valley.jpg)
+
+
+### Feira de Barcelos market
+
+![](https://www.cm-barcelos.pt/wp-content/uploads/2018/12/feira-semanal-1024x683.jpg)
+
+
+### Monsaraz
+
+![](https://upload.wikimedia.org/wikipedia/commons/7/70/Monsaraz_and_the_Alqueva_Reservoir.jpg)
+
+
+### Coimbra
+
+![](https://www.costharmonious.eu/wp-content/uploads/2019/05/coimbra-portogallo-cosa-vedere.jpg)
+
+
+### Alfama, Lisbon
+
+![](https://i.pinimg.com/736x/6a/32/dc/6a32dc6e51715ad2f9bada3e483e5ee8.jpg)
+
+
+### Parque Nacional da Peneda-Gerês
+
+![](https://media-cdn.tripadvisor.com/media/photo-s/0e/77/fb/05/junto-ao-parque-nacional.jpg)

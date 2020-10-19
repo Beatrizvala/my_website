@@ -3,36 +3,67 @@ categories:
 - ""
 - ""
 date: "2020-09-07"
-description: wine
+description: Visiting Portugal
 draft: false
-image: Wine.jpg
+image: Visit.jpg
 keywords: ""
 slug: project5
-title: Wine
+title: Visiting Portugal
 ---
 
 
 
-<p>Portugal has a strong wine tradition, and the excellent quality of its wines is recognized all over the world.
-Let’s see the total wine production in Portugal!</p>
-<pre class="r"><code>Wine_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls&#39;)</code></pre>
-<pre class="r"><code> Wine_data_new &lt;- Wine_data %&gt;%
-  rename(&quot;Wine_production_hl&quot; = `Wine production (hectolitre)`) %&gt;% 
-  transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
-                      `Wine_production_hl`= as.numeric(as.character(`Wine_production_hl`)))</code></pre>
-<div id="plots" class="section level2">
-<h2>Plots</h2>
-<pre class="r"><code>plot1w &lt;- Wine_data_new %&gt;% 
-  ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
-  geom_bar(stat = &quot;identity&quot;) +
-  facet_wrap(~ Localization, scales = &quot;free_y&quot;) + 
-  theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
-                                colour = &quot;lightblue&quot;,
-                                size = 0.5, linetype = &quot;solid&quot;)) +
-  labs(y = &quot;Wine production (hl)&quot;, title = &quot;Wine production in Portugal&quot;)
-  
-
-plot1w</code></pre>
-<p><img src="/projects/project5/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p>Source: <a href="https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;indOcorrCod=0008237&amp;contexto=bd&amp;selTab=tab2" class="uri">https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;indOcorrCod=0008237&amp;contexto=bd&amp;selTab=tab2</a></p>
+<div id="about-portugal" class="section level1">
+<h1>About Portugal…</h1>
+<p>Portugal’s landscape is made of beaches and high mountains, but also of deep, verdant valleys and rolling hills. It is full of friendly people, cheap food and wine and it is really easy to travel around.</p>
+<p><img src="https://lp-cms-production.imgix.net/image_browser/lisbon-portugal-GettyRF_1023284240.jpg.jpg" /></p>
+</div>
+<div id="where-to-go-in-portugal" class="section level1">
+<h1>Where to go in Portugal…</h1>
+<p>If you are looking to go to the beach with a calm sea and enjoy the sun, the best place to go is <strong>Algarve</strong>, located in the south. And for surfers, looking for big waves <strong>Ericeira</strong> and <strong>Peniche</strong> are amazing places to visit and stay for a couple of days..</p>
+<p><strong>Lisbon</strong> is a beautiful and captivating city to visit. It is really traditional, but also full of modern architecture. Some of the go-to areas are Chiado, Terreiro do Paço, Alfama and Avenida da Liberdade.</p>
+<p><strong>Porto</strong> is almost the second capital of Portugal. There you can find the <strong>Ribeira</strong>, surrounded by colorful buildings rising up from the banks of the river Douro. Along Douro are located some of the world’s most incredible vineyards and doing a trip along the port wine route is one of the best parts of visiting Portugal.</p>
+<div id="best-places-in-portugal" class="section level2">
+<h2>10 best places in Portugal</h2>
+<div id="portos-ribeira" class="section level3">
+<h3>Porto’s Ribeira</h3>
+<p><img src="https://cdn.theculturetrip.com/wp-content/uploads/2015/11/jctp0047-ribeira-porto-portugal-burrows-23.jpg" /></p>
+</div>
+<div id="sintra" class="section level3">
+<h3>Sintra</h3>
+<p><img src="https://media.cntraveler.com/photos/590ca578c116ba6ca55ec67c/16:9/w_4975,h_2798,c_limit/sintra-pena-palace-GettyImages-482413302.jpg" /></p>
+</div>
+<div id="serra-da-estrela" class="section level3">
+<h3>Serra da Estrela</h3>
+<p><img src="https://quantocustaviajar.com/blog/wp-content/uploads/2019/01/serra-da-estrela-em-portugal.jpg" /></p>
+</div>
+<div id="praia-da-bordeira-in-the-algarve" class="section level3">
+<h3>Praia da Bordeira in the Algarve</h3>
+<p><img src="https://thepostcard.me/wp-content/uploads/2018/08/Praia-da-Bordeira-Beach-Portugal-1080x810.jpg" /></p>
+</div>
+<div id="river-douro-valley" class="section level3">
+<h3>River Douro valley</h3>
+<p><img src="https://www.travel-in-portugal.com/sites/default/files/photos/douro_valley.jpg" /></p>
+</div>
+<div id="feira-de-barcelos-market" class="section level3">
+<h3>Feira de Barcelos market</h3>
+<p><img src="https://www.cm-barcelos.pt/wp-content/uploads/2018/12/feira-semanal-1024x683.jpg" /></p>
+</div>
+<div id="monsaraz" class="section level3">
+<h3>Monsaraz</h3>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Monsaraz_and_the_Alqueva_Reservoir.jpg" /></p>
+</div>
+<div id="coimbra" class="section level3">
+<h3>Coimbra</h3>
+<p><img src="https://www.costharmonious.eu/wp-content/uploads/2019/05/coimbra-portogallo-cosa-vedere.jpg" /></p>
+</div>
+<div id="alfama-lisbon" class="section level3">
+<h3>Alfama, Lisbon</h3>
+<p><img src="https://i.pinimg.com/736x/6a/32/dc/6a32dc6e51715ad2f9bada3e483e5ee8.jpg" /></p>
+</div>
+<div id="parque-nacional-da-peneda-gerês" class="section level3">
+<h3>Parque Nacional da Peneda-Gerês</h3>
+<p><img src="https://media-cdn.tripadvisor.com/media/photo-s/0e/77/fb/05/junto-ao-parque-nacional.jpg" /></p>
+</div>
+</div>
 </div>

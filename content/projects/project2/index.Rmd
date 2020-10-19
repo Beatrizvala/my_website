@@ -3,16 +3,15 @@ categories:
 - ""
 - ""
 date: "2020-09-07"
-description: tourism
+description: real estate
 draft: false
-image: Tourism.jpg
+image: 25Abril.jpg
 keywords: ""
 slug: project2
-title: Tourism
+title: Real Estate
 ---
 
-Tourism accounts for a big portion of Portugal's GDP, being a sector with high importance for the country.
-Let's see how this market is evolving.
+To understand the movements of the Portuguese Real Estate Market, let's look at the movements of the Residential properties' prices and compare it with the movements in the UK.
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -26,7 +25,8 @@ options(digits = 3)
 knitr::opts_chunk$set(
   fig.width=6.75, 
   fig.height=6.75,
-  fig.align = "center")
+  fig.align = "center"
+)
 ```
 
 ```{r load-libraries, echo=FALSE}
@@ -36,64 +36,46 @@ library(readxl)
 ```
 
 
+
 ```{r}
-Tourism_data1 <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourismv02.xls')
+Residential_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Residential Property Prices.xls')
 
-
-Tourism_data2 <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls')
 
 ```
 
 ```{r}
- Tourism_data1_new <- Tourism_data1 %>%  
-  rename("Place_of_residence" = `Place of residence (Country - short list)`,
-         "Year" = `Data reference period`,
-         "Number_of_nights" = `Nights (No.) in tourist accommodation establishments by Geographic localization and Place of residence (Country - short list); Annual (1)`) %>%
-  transform.data.frame(`Year` = as.numeric(as.character(`Year`)))
+ Residential_data_new <- Residential_data %>%  
+  rename("%_change" = `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted`, "residential_prices" = `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted`)
 
-```
-
-
-```{r}
- Tourism_data2_new <- Tourism_data2 %>%  
-  rename("Accomodation_type" = `Accomodation type`,
-         "Overnight_stays" = `Overnight stays`,
-         "Accomodation_type" = `Accomodation type`) %>%
-  transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
-                       `Overnight_stays` = as.numeric(as.character(`Overnight_stays`)))
 
 ```
 
 ## Plots
 
 ```{r}
-plot1t <- Tourism_data1_new %>% 
-  filter(Place_of_residence == "Total") %>% 
-  ggplot(mapping = aes(x = `Year`, y = `Number_of_nights`)) +
+plot1r <- Residential_data_new %>% 
+  ggplot(mapping = aes(x = `observation_date`, y = `%_change`, color = Country)) +
   geom_point() +
   geom_line() +
-  theme(panel.background = element_rect(fill = "lightblue",
-                                  colour = "lightblue",
-                                size = 0.5, linetype = "solid")) +
-  labs(y = "Number of nights", title = "Number of nights in Portuguese tourist accommodation establishments")
-
-plot1t
-```
-
-```{r}
-plot2t <- Tourism_data2_new %>% 
-  ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
-  geom_point() +
-  geom_line() +
-  facet_wrap(~ Accomodation_type, scales = "free_y") +
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid")) +
-  labs(y = "Overnight stays", title = "Number of nights in colective tourist accomodations")
+  scale_colour_manual(values = c("black", "grey50")) +
+  labs(x = "Observation date", y = "% change in residential prices", title = "% change in residential prices in Portugal and in the UK")
 
-plot2t
+plot1r
 ```
+```{r}
+plot2r <- Residential_data_new %>% 
+  ggplot(mapping = aes(x = `observation_date`, y = `residential_prices`, color = Country)) +
+  geom_point() +
+  geom_line() +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid")) +
+  scale_colour_manual(values = c("black", "grey50")) +
+  labs(x = "Observation date", y = "Residential prices", title = "Residential prices in Portugal and in the UK", subtitle = "Index 2010 = 100")
 
-
-Source: https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&contecto=pi&indOcorrCod=0009183&selTab=tab0
-https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&contecto=pi&indOcorrCod=0009183&selTab=tab0
+plot2r
+```
+Source: https://fred.stlouisfed.org/series/QPTN628BIS#0

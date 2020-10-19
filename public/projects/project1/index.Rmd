@@ -1,17 +1,18 @@
 ---
-title: "Main indicators"
-date: '2020-09-07'
-description: indicators
-draft: no
-image: Job.jpg
-keywords: ''
-slug: project1
 categories:
-- ''
-- ''
+- ""
+- ""
+date: "2020-09-07"
+description: tourism
+draft: false
+image: Tourism.jpg
+keywords: ""
+slug: project1
+title: Tourism
 ---
 
-Let's look at Portugal's population and GDP.
+Tourism accounts for a big portion of Portugal's GDP, being a sector with high importance for the country.
+Let's see how this market is evolving.
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -25,8 +26,7 @@ options(digits = 3)
 knitr::opts_chunk$set(
   fig.width=6.75, 
   fig.height=6.75,
-  fig.align = "center"
-)
+  fig.align = "center")
 ```
 
 ```{r load-libraries, echo=FALSE}
@@ -36,61 +36,64 @@ library(readxl)
 ```
 
 
-
 ```{r}
-World_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx')
+Tourism_data1 <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourismv02.xls')
 
+
+Tourism_data2 <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls')
 
 ```
 
 ```{r}
- World_data_new <- World_data %>%  
-  rename("Population" = `Population, total [SP.POP.TOTL]`,
-         "Year" = `Time`,
-         "Country" = `Country Name`,
-         "GDP" = `GDP (constant 2010 US$) [NY.GDP.MKTP.KD]`,
-         "GDP_Growth" = `GDP growth (annual %) [NY.GDP.MKTP.KD.ZG]`) %>%
-  transform.data.frame(`Population` = as.numeric(as.character(`Population`)),
-                       `Year` = as.numeric(as.character(`Year`)),
-                       `GDP` = as.numeric(as.character(`GDP`)))
-
+ Tourism_data1_new <- Tourism_data1 %>%  
+  rename("Place_of_residence" = `Place of residence (Country - short list)`,
+         "Year" = `Data reference period`,
+         "Number_of_nights" = `Nights (No.) in tourist accommodation establishments by Geographic localization and Place of residence (Country - short list); Annual (1)`) %>%
+  transform.data.frame(`Year` = as.numeric(as.character(`Year`)))
 
 ```
-
 
 
 ```{r}
-portugal_data <- World_data_new %>% 
-            filter(`Country` == "Portugal")
+ Tourism_data2_new <- Tourism_data2 %>%  
+  rename("Accomodation_type" = `Accomodation type`,
+         "Overnight_stays" = `Overnight stays`,
+         "Accomodation_type" = `Accomodation type`) %>%
+  transform.data.frame(`Year` = as.numeric(as.character(`Year`)),
+                       `Overnight_stays` = as.numeric(as.character(`Overnight_stays`)))
 
 ```
-
 
 ## Plots
 
-```{r, population_growth_Portugal}
-plot1 <- portugal_data %>% 
-  ggplot(mapping = aes(x = `Year`, y = `Population`)) +
+```{r}
+plot1t <- Tourism_data1_new %>% 
+  filter(Place_of_residence == "Total") %>% 
+  ggplot(mapping = aes(x = `Year`, y = `Number_of_nights`)) +
+  geom_point() +
   geom_line() +
   theme(panel.background = element_rect(fill = "lightblue",
-                                colour = "lightblue",
-                                size = 0.9, linetype = "solid")) +
-  labs(title = "Portugal population in the last 30 years")
+                                  colour = "lightblue",
+                                size = 0.5, linetype = "solid")) +
+  labs(y = "Number of nights", title = "Number of nights in Portuguese tourist accommodation establishments")
 
-plot1
+plot1t
+```
+
+```{r}
+plot2t <- Tourism_data2_new %>% 
+  ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~ Accomodation_type, scales = "free_y") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid")) +
+  labs(y = "Overnight stays", title = "Number of nights in colective tourist accomodations")
+
+plot2t
 ```
 
 
-```{r, GDP_growth_Portugal}
-plot2 <- portugal_data %>% 
-  ggplot(mapping = aes(x = `Year`, y = `GDP`)) +
-  geom_line() +
-  theme(panel.background = element_rect(fill = "lightblue",
-                                colour = "lightblue",
-                                size = 0.9, linetype = "solid")) +
-  labs(title = "Portugal GDP in the last 30 years")
-
-plot2
-```
-
-Source: https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL&country=PRT#
+Source: https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&contecto=pi&indOcorrCod=0009183&selTab=tab0
+https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&contecto=pi&indOcorrCod=0009183&selTab=tab0

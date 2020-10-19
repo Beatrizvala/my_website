@@ -3,15 +3,15 @@ categories:
 - ""
 - ""
 date: "2020-09-07"
-description: real estate
+description: covid
 draft: false
-image: 25Abril.jpg
+image: covid.jpg
 keywords: ""
 slug: project3
-title: Real Estate
+title: Covid-19 
 ---
 
-To understand the movements of the Portuguese Real Estate Market, let's look at the movements of the Residential properties' prices and compare it with the movements in the UK.
+Let's try to understand how Coronavirus has been developing in Portugal, comparing it with the UK and with the whole world.
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -36,46 +36,49 @@ library(readxl)
 ```
 
 
-
 ```{r}
-Residential_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Residential Property Prices.xls')
-
+covid_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx')
 
 ```
 
 ```{r}
- Residential_data_new <- Residential_data %>%  
-  rename("%_change" = `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted`, "residential_prices" = `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted`)
-
+covid_data_new <- covid_data %>% 
+  transform.data.frame(`date` = as.Date(`date`))
 
 ```
 
 ## Plots
 
 ```{r}
-plot1r <- Residential_data_new %>% 
-  ggplot(mapping = aes(x = `observation_date`, y = `%_change`, color = Country)) +
-  geom_point() +
+plot1c <- covid_data_new %>%
+  filter(`location` == "Portugal") %>% 
+  ggplot(mapping = aes(x = `date`, y = `total_cases`, color = `location`)) +
+  scale_x_date(date_breaks = "2 month") +
   geom_line() +
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid")) +
-  scale_colour_manual(values = c("black", "grey50")) +
-  labs(x = "Observation date", y = "% change in residential prices", title = "% change in residential prices in Portugal and in the UK")
+  scale_colour_manual(values = "grey50") +
+  labs(y = "Total number of cases", x = "Date", title = "Total number of Covid-19 cases in Portugal")
 
-plot1r
+plot1c
 ```
+
+
 ```{r}
-plot2r <- Residential_data_new %>% 
-  ggplot(mapping = aes(x = `observation_date`, y = `residential_prices`, color = Country)) +
-  geom_point() +
+plot2c <- covid_data_new %>%
+  filter(`location` == c("Portugal", "United Kingdom", "World")) %>% 
+  ggplot(mapping = aes(x = `date`, y = `total_cases_per_million`, color = `location`)) +
+  scale_x_date(date_breaks = "2 month") +
   geom_line() +
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid")) +
-  scale_colour_manual(values = c("black", "grey50")) +
-  labs(x = "Observation date", y = "Residential prices", title = "Residential prices in Portugal and in the UK", subtitle = "Index 2010 = 100")
+  scale_colour_manual(values = c("grey50", "black", "white")) +
+  labs(y = "Total cases per million", x = "Date", title = "Total number of Covid-19 cases in Portugal, UK and World")
 
-plot2r
+plot2c
 ```
-Source: https://fred.stlouisfed.org/series/QPTN628BIS#0
+
+
+Source: https://ourworldindata.org/coronavirus/country/portugal?country=~PRT
