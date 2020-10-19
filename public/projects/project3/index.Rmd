@@ -11,7 +11,7 @@ slug: project3
 title: Covid-19 
 ---
 
-Let's try to understand how Coronavirus has been developing in Portugal, comparing it with the UK and with the whole world.
+Let's look at how Coronavirus has been developing in Portugal, comparing it with the UK and with the whole world.
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(

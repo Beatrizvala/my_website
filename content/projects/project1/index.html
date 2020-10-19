@@ -44,6 +44,7 @@ Tourism_data2 &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trab
 
 plot1t</code></pre>
 <p><img src="/projects/project1/index_files/figure-html/unnamed-chunk-4-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>As we can see the number of nights spent in tourist accommodation establishments per year has been increasingly higher, which is great for Portugal’s economy as well as for our culture. However, given the situation we are currently living in, there will certainly be a decrease in 2020 and 2021, which I hope we can solve fast.</p>
 <pre class="r"><code>plot2t &lt;- Tourism_data2_new %&gt;% 
   ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
   geom_point() +
@@ -56,6 +57,7 @@ plot1t</code></pre>
 
 plot2t</code></pre>
 <p><img src="/projects/project1/index_files/figure-html/unnamed-chunk-5-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>With these graphs we can look to several types of collective tourist accommodations. In particular, hotels and rural tourism have been the main drivers of the increase of overnight stays in these accommodations, showing an upward slope. Whereas overnight stays in holiday camps have been decreasing year by year.</p>
 <p>Source: <a href="https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;contecto=pi&amp;indOcorrCod=0009183&amp;selTab=tab0" class="uri">https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;contecto=pi&amp;indOcorrCod=0009183&amp;selTab=tab0</a>
 <a href="https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;contecto=pi&amp;indOcorrCod=0009183&amp;selTab=tab0" class="uri">https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;contecto=pi&amp;indOcorrCod=0009183&amp;selTab=tab0</a></p>
 </div>

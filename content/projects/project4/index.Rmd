@@ -67,4 +67,6 @@ plot1w <- Wine_data_new %>%
 plot1w
 ```
 
+As expected the wine production in Portuguese Mainland is much higher than on the islands. Besides, the total production has been relatively stable in the Mainland (about over 6M hl per year). In Azores the production is quite unstable and is the island with the smallest contribution to this market.
+
 Source: https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&indOcorrCod=0008237&contexto=bd&selTab=tab2

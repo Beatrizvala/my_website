@@ -80,6 +80,8 @@ plot1t <- Tourism_data1_new %>%
 plot1t
 ```
 
+As we can see the number of nights spent in tourist accommodation establishments per year has been increasingly higher, which is great for Portugal's economy as well as for our culture. However, given the situation we are currently living in, there will certainly be a decrease in 2020 and 2021, which I hope we can solve fast.
+
 ```{r}
 plot2t <- Tourism_data2_new %>% 
   ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
@@ -93,6 +95,8 @@ plot2t <- Tourism_data2_new %>%
 
 plot2t
 ```
+
+With these graphs we can look to several types of collective tourist accommodations. In particular, hotels and rural tourism have been the main drivers of the increase of overnight stays in these accommodations, showing an upward slope. Whereas overnight stays in holiday camps have been decreasing year by year.
 
 
 Source: https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&contecto=pi&indOcorrCod=0009183&selTab=tab0

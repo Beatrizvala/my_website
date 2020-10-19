@@ -65,6 +65,8 @@ plot1r <- Residential_data_new %>%
 
 plot1r
 ```
+
+
 ```{r}
 plot2r <- Residential_data_new %>% 
   ggplot(mapping = aes(x = `observation_date`, y = `residential_prices`, color = Country)) +
@@ -78,4 +80,7 @@ plot2r <- Residential_data_new %>%
 
 plot2r
 ```
+
+As we can see residential prices in Portugal have been having relatively high positive changes in prices, in particular, comparing to the UK. Which means that at least until Coronavirus appeared, this market was thriving and had good investment opportunities.
+
 Source: https://fred.stlouisfed.org/series/QPTN628BIS#0

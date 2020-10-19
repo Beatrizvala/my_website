@@ -24,7 +24,7 @@ Academic BackgroundI did my Bachelors in Business Management at Católica Lisbo
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project3/</guid>
-      <description>Let’s try to understand how Coronavirus has been developing in Portugal, comparing it with the UK and with the whole world.
+      <description>Let’s look at how Coronavirus has been developing in Portugal, comparing it with the UK and with the whole world.
 covid_data &amp;lt;- read_excel(&amp;#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx&amp;#39;)covid_data_new &amp;lt;- covid_data %&amp;gt;% transform.data.frame(`date` = as.Date(`date`))Plotsplot1c &amp;lt;- covid_data_new %&amp;gt;%filter(`location` == &amp;quot;Portugal&amp;quot;) %&amp;gt;% ggplot(mapping = aes(x = `date`, y = `total_cases`, color = `location`)) +scale_x_date(date_breaks = &amp;quot;2 month&amp;quot;) +geom_line() +theme(panel.background = element_rect(fill = &amp;quot;lightblue&amp;quot;,colour = &amp;quot;lightblue&amp;quot;,size = 0.</description>
     </item>
     
