@@ -129,7 +129,7 @@ disqusShortname = ""
       
     [[params.tiles.showcase]]
       title = "About me"
-      subtitle = "Who's am I?"
+      subtitle = "Who am I?"
       image = "projects/me.jpg"
       url = "projects/project7"
     # You can make more showcases by copy and pasting the code above
