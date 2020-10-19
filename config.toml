@@ -126,6 +126,12 @@ disqusShortname = ""
       subtitle = "What to do?"
       image = "projects/Visit.jpg"
       url = "projects/project6"
+      
+    [[params.tiles.showcase]]
+      title = "About me"
+      subtitle = "Who's am I?"
+      image = "projects/me.jpg"
+      url = "projects/project7"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
@@ -142,7 +148,7 @@ disqusShortname = ""
     subtitle = """Portugal is located in the southwest of Europe.
     This wonderful country is characterized by its cuisine, landscape, climate..."""
     buttonText = "Get Started"
-    url = "blogs"
+    url = "projects"
 
 
   # Contact section

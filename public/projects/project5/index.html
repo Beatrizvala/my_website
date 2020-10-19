@@ -81,6 +81,8 @@
                             
 
 
+<p>Portugal has a strong wine tradition, and the excellent quality of its wines is recognized all over the world.
+Let’s see the total wine production in Portugal!</p>
 <pre class="r"><code>Wine_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.xls&#39;)</code></pre>
 <pre class="r"><code> Wine_data_new &lt;- Wine_data %&gt;%
   rename(&quot;Wine_production_hl&quot; = `Wine production (hectolitre)`) %&gt;% 
@@ -90,16 +92,17 @@
 <h2>Plots</h2>
 <pre class="r"><code>plot1w &lt;- Wine_data_new %&gt;% 
   ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
-  geom_point() +
+  geom_bar(stat = &quot;identity&quot;) +
   facet_wrap(~ Localization, scales = &quot;free_y&quot;) + 
   theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
                                 colour = &quot;lightblue&quot;,
                                 size = 0.5, linetype = &quot;solid&quot;)) +
-  labs(y = &quot;Wine production (hl)&quot;)
+  labs(y = &quot;Wine production (hl)&quot;, title = &quot;Wine production in Portugal&quot;)
   
 
 plot1w</code></pre>
 <p><img src="/projects/project5/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>Source: <a href="https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;indOcorrCod=0008237&amp;contexto=bd&amp;selTab=tab2" class="uri">https://www.ine.pt/xportal/xmain?xpid=INE&amp;xpgid=ine_indicadores&amp;indOcorrCod=0008237&amp;contexto=bd&amp;selTab=tab2</a></p>
 </div>
 
                         </div>

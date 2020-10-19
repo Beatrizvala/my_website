@@ -11,7 +11,8 @@ slug: project5
 title: Wine
 ---
 
-
+Portugal has a strong wine tradition, and the excellent quality of its wines is recognized all over the world.
+Let's see the total wine production in Portugal!
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -55,13 +56,15 @@ Wine_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Wine.
 ```{r}
 plot1w <- Wine_data_new %>% 
   ggplot(mapping = aes(x = `Year`, y = `Wine_production_hl`)) +
-  geom_point() +
+  geom_bar(stat = "identity") +
   facet_wrap(~ Localization, scales = "free_y") + 
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid")) +
-  labs(y = "Wine production (hl)")
+  labs(y = "Wine production (hl)", title = "Wine production in Portugal")
   
 
 plot1w
 ```
+
+Source: https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&indOcorrCod=0008237&contexto=bd&selTab=tab2

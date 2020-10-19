@@ -13,6 +13,7 @@ categories:
 
 
 
+<p>Let’s look at Portugal’s population and GDP.</p>
 <pre class="r"><code>World_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\World data.xlsx&#39;)</code></pre>
 <pre class="r"><code> World_data_new &lt;- World_data %&gt;%  
   rename(&quot;Population&quot; = `Population, total [SP.POP.TOTL]`,
@@ -32,7 +33,8 @@ categories:
   geom_line() +
   theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
                                 colour = &quot;lightblue&quot;,
-                                size = 0.9, linetype = &quot;solid&quot;))
+                                size = 0.9, linetype = &quot;solid&quot;)) +
+  labs(title = &quot;Portugal population in the last 30 years&quot;)
 
 plot1</code></pre>
 <p><img src="/projects/project1/index_files/figure-html/population_growth_Portugal-1.png" width="648" style="display: block; margin: auto;" /></p>
@@ -41,7 +43,8 @@ plot1</code></pre>
   geom_line() +
   theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
                                 colour = &quot;lightblue&quot;,
-                                size = 0.9, linetype = &quot;solid&quot;))
+                                size = 0.9, linetype = &quot;solid&quot;)) +
+  labs(title = &quot;Portugal GDP in the last 30 years&quot;)
 
 plot2</code></pre>
 <p><img src="/projects/project1/index_files/figure-html/GDP_growth_Portugal-1.png" width="648" style="display: block; margin: auto;" /></p>

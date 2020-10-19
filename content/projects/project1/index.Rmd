@@ -11,6 +11,7 @@ categories:
 - ''
 ---
 
+Let's look at Portugal's population and GDP.
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -73,7 +74,8 @@ plot1 <- portugal_data %>%
   geom_line() +
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
-                                size = 0.9, linetype = "solid"))
+                                size = 0.9, linetype = "solid")) +
+  labs(title = "Portugal population in the last 30 years")
 
 plot1
 ```
@@ -85,7 +87,8 @@ plot2 <- portugal_data %>%
   geom_line() +
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
-                                size = 0.9, linetype = "solid"))
+                                size = 0.9, linetype = "solid")) +
+  labs(title = "Portugal GDP in the last 30 years")
 
 plot2
 ```

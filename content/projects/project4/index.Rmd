@@ -11,6 +11,7 @@ slug: project4
 title: Covid-19 
 ---
 
+Let's try to understand how Coronavirus has been developing in Portugal, comparing it with the UK and with the whole world.
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -35,7 +36,6 @@ library(readxl)
 ```
 
 
-
 ```{r}
 covid_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx')
 
@@ -54,11 +54,12 @@ plot1c <- covid_data_new %>%
   filter(`location` == "Portugal") %>% 
   ggplot(mapping = aes(x = `date`, y = `total_cases`, color = `location`)) +
   scale_x_date(date_breaks = "2 month") +
-  geom_point() +
+  geom_line() +
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid")) +
-  scale_colour_manual(values = "grey50")
+  scale_colour_manual(values = "grey50") +
+  labs(y = "Total number of cases", x = "Date", title = "Total number of Covid-19 cases in Portugal")
 
 plot1c
 ```
@@ -69,12 +70,15 @@ plot2c <- covid_data_new %>%
   filter(`location` == c("Portugal", "United Kingdom", "World")) %>% 
   ggplot(mapping = aes(x = `date`, y = `total_cases_per_million`, color = `location`)) +
   scale_x_date(date_breaks = "2 month") +
-  geom_point() +
+  geom_line() +
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid")) +
   scale_colour_manual(values = c("grey50", "black", "white")) +
-  labs(y = "Total cases per million", x = "Date")
+  labs(y = "Total cases per million", x = "Date", title = "Total number of Covid-19 cases in Portugal, UK and World")
 
 plot2c
 ```
+
+
+Source: https://ourworldindata.org/coronavirus/country/portugal?country=~PRT

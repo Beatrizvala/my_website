@@ -11,6 +11,7 @@ slug: project3
 title: Real Estate
 ---
 
+To understand the movements of the Portuguese Real Estate Market, let's look at the movements of the Residential properties' prices and compare it with the movements in the UK.
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -59,7 +60,8 @@ plot1r <- Residential_data_new %>%
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid")) +
-  scale_colour_manual(values = c("black", "grey50"))
+  scale_colour_manual(values = c("black", "grey50")) +
+  labs(x = "Observation date", y = "% change in residential prices", title = "% change in residential prices in Portugal and in the UK")
 
 plot1r
 ```
@@ -71,8 +73,9 @@ plot2r <- Residential_data_new %>%
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid")) +
-  scale_colour_manual(values = c("black", "grey50"))
+  scale_colour_manual(values = c("black", "grey50")) +
+  labs(x = "Observation date", y = "Residential prices", title = "Residential prices in Portugal and in the UK", subtitle = "Index 2010 = 100")
 
 plot2r
 ```
-
+Source: https://fred.stlouisfed.org/series/QPTN628BIS#0

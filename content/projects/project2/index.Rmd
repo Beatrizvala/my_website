@@ -11,6 +11,8 @@ slug: project2
 title: Tourism
 ---
 
+Tourism accounts for a big portion of Portugal's GDP, being a sector with high importance for the country.
+Let's see how this market is evolving.
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -24,8 +26,7 @@ options(digits = 3)
 knitr::opts_chunk$set(
   fig.width=6.75, 
   fig.height=6.75,
-  fig.align = "center"
-)
+  fig.align = "center")
 ```
 
 ```{r load-libraries, echo=FALSE}
@@ -34,17 +35,27 @@ library(here)
 library(readxl)
 ```
 
-## Load the data
-
 
 ```{r}
-Tourism_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls')
+Tourism_data1 <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourismv02.xls')
 
+
+Tourism_data2 <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\tourism.xls')
 
 ```
 
 ```{r}
- Tourism_data_new <- Tourism_data %>%  
+ Tourism_data1_new <- Tourism_data1 %>%  
+  rename("Place_of_residence" = `Place of residence (Country - short list)`,
+         "Year" = `Data reference period`,
+         "Number_of_nights" = `Nights (No.) in tourist accommodation establishments by Geographic localization and Place of residence (Country - short list); Annual (1)`) %>%
+  transform.data.frame(`Year` = as.numeric(as.character(`Year`)))
+
+```
+
+
+```{r}
+ Tourism_data2_new <- Tourism_data2 %>%  
   rename("Accomodation_type" = `Accomodation type`,
          "Overnight_stays" = `Overnight stays`,
          "Accomodation_type" = `Accomodation type`) %>%
@@ -56,17 +67,33 @@ Tourism_data <- read_excel('C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\to
 ## Plots
 
 ```{r}
-plot1t <- Tourism_data_new %>% 
-  ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
+plot1t <- Tourism_data1_new %>% 
+  filter(Place_of_residence == "Total") %>% 
+  ggplot(mapping = aes(x = `Year`, y = `Number_of_nights`)) +
   geom_point() +
-  facet_wrap(~ Accomodation_type, scales = "free_y") +
+  geom_line() +
   theme(panel.background = element_rect(fill = "lightblue",
-                                colour = "lightblue",
+                                  colour = "lightblue",
                                 size = 0.5, linetype = "solid")) +
-  labs(y = "Overnight stays")
+  labs(y = "Number of nights", title = "Number of nights in Portuguese tourist accommodation establishments")
 
 plot1t
 ```
 
+```{r}
+plot2t <- Tourism_data2_new %>% 
+  ggplot(mapping = aes(x = `Year`, y = `Overnight_stays`)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~ Accomodation_type, scales = "free_y") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid")) +
+  labs(y = "Overnight stays", title = "Number of nights in colective tourist accomodations")
 
-Source: 
+plot2t
+```
+
+
+Source: https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&contecto=pi&indOcorrCod=0009183&selTab=tab0
+https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&contecto=pi&indOcorrCod=0009183&selTab=tab0

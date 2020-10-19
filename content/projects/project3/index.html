@@ -13,6 +13,7 @@ title: Real Estate
 
 
 
+<p>To understand the movements of the Portuguese Real Estate Market, let’s look at the movements of the Residential properties’ prices and compare it with the movements in the UK.</p>
 <pre class="r"><code>Residential_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\Residential Property Prices.xls&#39;)</code></pre>
 <pre class="r"><code> Residential_data_new &lt;- Residential_data %&gt;%  
   rename(&quot;%_change&quot; = `Residential Property Prices, Percent Change, Annual, Not Seasonally Adjusted`, &quot;residential_prices&quot; = `Residential Property Prices, Index 2010=100, Annual, Not Seasonally Adjusted`)</code></pre>
@@ -25,7 +26,8 @@ title: Real Estate
   theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
                                 colour = &quot;lightblue&quot;,
                                 size = 0.5, linetype = &quot;solid&quot;)) +
-  scale_colour_manual(values = c(&quot;black&quot;, &quot;grey50&quot;))
+  scale_colour_manual(values = c(&quot;black&quot;, &quot;grey50&quot;)) +
+  labs(x = &quot;Observation date&quot;, y = &quot;% change in residential prices&quot;, title = &quot;% change in residential prices in Portugal and in the UK&quot;)
 
 plot1r</code></pre>
 <p><img src="/projects/project3/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>
@@ -36,8 +38,10 @@ plot1r</code></pre>
   theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
                                 colour = &quot;lightblue&quot;,
                                 size = 0.5, linetype = &quot;solid&quot;)) +
-  scale_colour_manual(values = c(&quot;black&quot;, &quot;grey50&quot;))
+  scale_colour_manual(values = c(&quot;black&quot;, &quot;grey50&quot;)) +
+  labs(x = &quot;Observation date&quot;, y = &quot;Residential prices&quot;, title = &quot;Residential prices in Portugal and in the UK&quot;, subtitle = &quot;Index 2010 = 100&quot;)
 
 plot2r</code></pre>
-<p><img src="/projects/project3/index_files/figure-html/unnamed-chunk-4-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/project3/index_files/figure-html/unnamed-chunk-4-1.png" width="648" style="display: block; margin: auto;" />
+Source: <a href="https://fred.stlouisfed.org/series/QPTN628BIS#0" class="uri">https://fred.stlouisfed.org/series/QPTN628BIS#0</a></p>
 </div>

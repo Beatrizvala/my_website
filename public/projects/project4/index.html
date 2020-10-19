@@ -81,6 +81,7 @@
                             
 
 
+<p>Let’s try to understand how Coronavirus has been developing in Portugal, comparing it with the UK and with the whole world.</p>
 <pre class="r"><code>covid_data &lt;- read_excel(&#39;C:\\Users\\beatr\\OneDrive\\Ambiente de Trabalho\\owid-covid-data.xlsx&#39;)</code></pre>
 <pre class="r"><code>covid_data_new &lt;- covid_data %&gt;% 
   transform.data.frame(`date` = as.Date(`date`))</code></pre>
@@ -90,11 +91,12 @@
   filter(`location` == &quot;Portugal&quot;) %&gt;% 
   ggplot(mapping = aes(x = `date`, y = `total_cases`, color = `location`)) +
   scale_x_date(date_breaks = &quot;2 month&quot;) +
-  geom_point() +
+  geom_line() +
   theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
                                 colour = &quot;lightblue&quot;,
                                 size = 0.5, linetype = &quot;solid&quot;)) +
-  scale_colour_manual(values = &quot;grey50&quot;)
+  scale_colour_manual(values = &quot;grey50&quot;) +
+  labs(y = &quot;Total number of cases&quot;, x = &quot;Date&quot;, title = &quot;Total number of Covid-19 cases in Portugal&quot;)
 
 plot1c</code></pre>
 <p><img src="/projects/project4/index_files/figure-html/unnamed-chunk-3-1.png" width="648" style="display: block; margin: auto;" /></p>
@@ -102,15 +104,16 @@ plot1c</code></pre>
   filter(`location` == c(&quot;Portugal&quot;, &quot;United Kingdom&quot;, &quot;World&quot;)) %&gt;% 
   ggplot(mapping = aes(x = `date`, y = `total_cases_per_million`, color = `location`)) +
   scale_x_date(date_breaks = &quot;2 month&quot;) +
-  geom_point() +
+  geom_line() +
   theme(panel.background = element_rect(fill = &quot;lightblue&quot;,
                                 colour = &quot;lightblue&quot;,
                                 size = 0.5, linetype = &quot;solid&quot;)) +
   scale_colour_manual(values = c(&quot;grey50&quot;, &quot;black&quot;, &quot;white&quot;)) +
-  labs(y = &quot;Total cases per million&quot;, x = &quot;Date&quot;)
+  labs(y = &quot;Total cases per million&quot;, x = &quot;Date&quot;, title = &quot;Total number of Covid-19 cases in Portugal, UK and World&quot;)
 
 plot2c</code></pre>
 <p><img src="/projects/project4/index_files/figure-html/unnamed-chunk-4-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>Source: <a href="https://ourworldindata.org/coronavirus/country/portugal?country=~PRT" class="uri">https://ourworldindata.org/coronavirus/country/portugal?country=~PRT</a></p>
 </div>
 
                         </div>
