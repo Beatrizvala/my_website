@@ -81,6 +81,6 @@ plot2r <- Residential_data_new %>%
 plot2r
 ```
 
-As we can see residential prices in Portugal have been having relatively high positive changes in prices, in particular, comparing to the UK. Which means that at least until Coronavirus appeared, this market was thriving and had good investment opportunities.
+As we can see residential prices in Portugal have been having relatively high positive changes in prices, in particular, comparing to the UK. Which means that at least until Coronavirus appeared, this market was thriving and probably had good investment opportunities.
 
 Source: https://fred.stlouisfed.org/series/QPTN628BIS#0
