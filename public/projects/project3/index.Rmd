@@ -80,5 +80,6 @@ plot2c <- covid_data_new %>%
 plot2c
 ```
 
+As we can see from both graphs, the total cases in Portugal have been evolving rapidly, in particular in the past days. Besides, the UK was able to control the cases between June and September, whereas in Portugal during these months the total cases continued to rise at a fast rate.
 
 Source: https://ourworldindata.org/coronavirus/country/portugal?country=~PRT
